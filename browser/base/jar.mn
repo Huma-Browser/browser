@@ -67,6 +67,7 @@ browser.jar:
         content/browser/browser-webrtc.js                   (content/browser-webrtc.js)
         content/browser/main-popupset.js                    (content/main-popupset.js)
         content/browser/huma.css                            (content/huma.css)
+        content/browser/HumaSidebarManager.mjs              (content/HumaSidebarManager.mjs)
 *       content/browser/pageinfo/pageInfo.xhtml             (content/pageinfo/pageInfo.xhtml)
         content/browser/pageinfo/pageInfo.js                (content/pageinfo/pageInfo.js)
         content/browser/pageinfo/pageInfo.css               (content/pageinfo/pageInfo.css)
@@ -104,4 +105,3 @@ browser.jar:
 
 # L10n resources and overrides.
 % override chrome://global/locale/appstrings.properties chrome://browser/locale/appstrings.properties
-#include content/huma-scripts.jar.inc.mn
