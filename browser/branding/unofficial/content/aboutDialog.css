@@ -3,13 +3,12 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #aboutDialogContainer {
-  background-color: #130829;
+  background-color: #20123a;
   color: #fff;
   color-scheme: dark;
 }
 
 #rightBox {
-  background-size: auto 64px;
   margin-inline: 30px;
   padding-top: 64px;
 }

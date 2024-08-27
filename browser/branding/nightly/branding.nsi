@@ -8,22 +8,22 @@
 
 # BrandFullNameInternal is used for some registry and file system values
 # instead of BrandFullName and typically should not be modified.
-!define BrandFullNameInternal "Nightly"
-!define BrandFullName         "Firefox Nightly"
-!define CompanyName           "mozilla.org"
-!define URLInfoAbout          "https://www.mozilla.org"
-!define HelpLink              "https://support.mozilla.org"
+!define BrandFullNameInternal "Huma"
+!define BrandFullName         "Huma"
+!define CompanyName           "Egehan"
+!define URLInfoAbout          "https://humatarayici.com/docs"
+!define HelpLink              "https://github.com/VastSea0/Huma/wiki/H%C3%BCma--Wiki"
 
 !define URLStubDownloadX86 "https://download.mozilla.org/?os=win&lang=${AB_CD}&product=firefox-nightly-latest"
 !define URLStubDownloadAMD64 "https://download.mozilla.org/?os=win64&lang=${AB_CD}&product=firefox-nightly-latest"
 !define URLStubDownloadAArch64 "https://download.mozilla.org/?os=win64-aarch64&lang=${AB_CD}&product=firefox-nightly-latest"
 !define URLManualDownload "https://www.mozilla.org/${AB_CD}/firefox/installer-help/?channel=nightly&installer_lang=${AB_CD}"
-!define URLSystemRequirements "https://www.mozilla.org/firefox/system-requirements/"
-!define Channel "nightly"
+!define URLSystemRequirements "https://github.com/VastSea0/Huma/wiki/Sistem-gereksinimleri"
+!define Channel "kararsiz"
 
 # The installer's certificate name and issuer expected by the stub installer
 !define CertNameDownload   "Mozilla Corporation"
-!define CertIssuerDownload "DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1"
+!define CertIssuerDownload "DigiCert SHA2 Assured ID Code Signing CA"
 
 # Dialog units are used so the UI displays correctly with the system's DPI
 # settings.

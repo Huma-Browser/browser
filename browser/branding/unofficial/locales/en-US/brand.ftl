@@ -16,12 +16,12 @@
 ## For further details, consult:
 ## https://mozilla-l10n.github.io/styleguides/mozilla_general/#brands-copyright-and-trademark
 
--brand-shorter-name = Nightly
--brand-short-name = Nightly
--brand-shortcut-name = Nightly
--brand-full-name = Nightly
+-brand-shorter-name = Hüma 
+-brand-short-name = Hüma 
+-brand-shortcut-name = Hüma 
+-brand-full-name = Hüma 
 # This brand name can be used in messages where the product name needs to
-# remain unchanged across different versions (Nightly, Beta, etc.).
--brand-product-name = Firefox
--vendor-short-name = Mozilla
+# remain unchanged across different versions (Huma, Beta, etc.).
+-brand-product-name = Hüma 
+-vendor-short-name = Hüma 
 trademarkInfo = { " " }
