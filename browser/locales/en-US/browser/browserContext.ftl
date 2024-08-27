@@ -202,6 +202,24 @@ main-context-menu-media-pause =
     .accesskey = P
 
 ##
+main-context-menu-humabar =
+    .label = Hüma Sidebar
+    .accesskey = K
+main-context-menu-humabar-reload =
+    .label = Refresh Sidebar
+    .accesskey = K
+main-context-menu-humabar-open =
+    .label = Open Mode
+    .accesskey = K
+main-context-menu-humabar-close =
+    .label = Switch to Off Mode
+    .accesskey = K
+main-context-menu-humabar-min =
+    .label = switch to Thin Mode
+    .accesskey = K
+main-context-menu-humabar-max =
+    .label = switch to Wide Mode
+    .accesskey = K
 
 main-context-menu-media-mute =
     .label = Mute

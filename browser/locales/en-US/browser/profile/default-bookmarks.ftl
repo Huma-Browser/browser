@@ -10,13 +10,13 @@ default-bookmarks-title = Bookmarks
 default-bookmarks-heading = Bookmarks
 
 # Firefox links folder name
-default-bookmarks-firefox-heading = Mozilla Firefox
+default-bookmarks-firefox-heading = Hüma
 
 # link title for https://www.mozilla.org/firefox/help/
 default-bookmarks-firefox-get-help = Get Help
 
 # link title for https://www.mozilla.org/firefox/customize/
-default-bookmarks-firefox-customize = Customize Firefox
+default-bookmarks-firefox-customize = Customize Hüma
 
 # link title for https://www.mozilla.org/contribute/
 default-bookmarks-firefox-community = Get Involved

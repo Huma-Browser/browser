@@ -37,7 +37,7 @@
       override rules using selectors with the same specificity. This applies to
       both "content" and "skin" packages, which bug 1385444 will unify later. -->
   <link rel="stylesheet" href="chrome://global/skin/global.css" />
-
+  <link rel="stylesheet" href="chrome://browser/content/huma.css" />
   <link
     rel="stylesheet"
     href="chrome://browser/content/downloads/downloads.css"
@@ -141,6 +141,7 @@
   window.addEventListener("DOMContentLoaded",
     gBrowserInit.onDOMContentLoaded.bind(gBrowserInit), { once: true });
 </script>
+#include huma-scripts.inc.xhtml
 </head>
 <html:body xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 # All sets except for popupsets (commands, keys, and stringbundles)
