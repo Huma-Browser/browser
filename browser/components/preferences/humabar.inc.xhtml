@@ -1,0 +1,96 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+<!-- More From Mozilla panel -->
+
+
+<script src="chrome://browser/content/HumaSidebarManager.mjs"/>
+
+<script src="chrome://browser/content/preferences/humabar.js" />
+<script src="chrome://browser/content/nsContextMenu.js" />
+
+
+<html:style>
+  .humabar-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .humabar-row {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    padding: 8px 0;
+  }
+  .humabar-cell {
+    flex: 1;
+    padding: 0 8px;
+  }
+  .humabar-buttons {
+    text-align: left;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #2a2a2e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  .humabar-buttons:hover {
+    background-color: #38383d;
+  }
+  .icon-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    margin: 0 2px;
+    color: #fff;
+  }
+  .icon-button:hover {
+    background-color: #38383d;
+  }
+  .create-button {
+    margin-top: 16px;
+    padding: 8px 16px;
+    background-color: #0060df;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .create-button:hover {
+    background-color: #003eaa;
+  }
+</html:style>
+ 
+<html:template id="template-paneHumaBar">
+  <div id="humaCategory-header" hidden="true" data-category="paneHumaBar"></div>
+  <groupbox id="humaBarPageGroup" data-category="paneHumaBar" hidden="true">
+    <hbox style="display: flex; flex-direction: column; padding: 16px;">
+      <html:h1>Kenar Çubuğunu Düzenle</html:h1>
+      <html:h3>WebApp'leri düzenle</html:h3>
+      <html:div class="humabar-table" id="huma-sidebar-panels-sites-container">
+        <!-- Table rows will be dynamically inserted here -->
+      </html:div>
+       
+    </hbox>
+    <hbox style="display: flex; flex-direction: column; padding: 16px;">
+      <html:h3>Genişlik kipi</html:h3>
+      <html:div class="humabar-table" >
+        <html:div class="humabar-row" id="row" >
+          
+        </html:div> 
+ 
+        
+
+      </html:div>
+       
+    </hbox>
+  </groupbox>
+</html:template>
+
+ 
