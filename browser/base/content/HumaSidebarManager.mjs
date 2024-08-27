@@ -319,15 +319,15 @@ if (!AddonManager) {
         
         let upButton = this._createIconButton("\u2191");
         let downButton = this._createIconButton("\u2193");
-        let deleteButton = this._createIconButton("sil");
+        let deleteButton = this._createIconButton("Delete");
         
         deleteButton.addEventListener("click", (event) => {
           let idToDelete = event.target.closest(".humabar-row").querySelector("[huma-sidebar-id]").getAttribute("huma-sidebar-id");
           this._deleteUrl(idToDelete);
         });
         
-        actionCell.appendChild(upButton);
-        actionCell.appendChild(downButton);
+        //actionCell.appendChild(upButton);
+        //actionCell.appendChild(downButton);
         actionCell.appendChild(deleteButton);
         
         row.appendChild(urlCell);
@@ -338,7 +338,7 @@ if (!AddonManager) {
       
       let createButton = document.createElement("button");
       createButton.className = "create-button";
-      createButton.textContent = "+ Yeni URL ekle";
+      createButton.textContent = "+ Add new site";
       createButton.addEventListener("click", this._createNewUrl.bind(this));
       this.sidebarElement.appendChild(createButton);
     },
@@ -469,7 +469,17 @@ if (!AddonManager) {
       if (existantWebview) {
         existantWebview.docShellIsActive = true;
         existantWebview.removeAttribute("hidden");
-        document.getElementById("huma-sidebar-web-panel-title").textContent = existantWebview.contentTitle;
+        const element = document.getElementById("huma-sidebar-web-panel-title");
+        const maxLength = 47;
+        const contentTitle = existantWebview.contentTitle;
+
+        if (contentTitle.length > maxLength) {
+          element.textContent = contentTitle.substring(0, maxLength) + '...';
+        } else {
+          element.textContent = contentTitle;
+        }
+
+        //document.getElementById("huma-sidebar-web-panel-title").textContent = existantWebview.contentTitle;
         return;
       }
       let data = this._getWebPanelData(this._currentPanel);
@@ -496,7 +506,7 @@ if (!AddonManager) {
   
     _createWebPanelBrowser(data) {
       const titleContainer = document.getElementById("huma-sidebar-web-panel-title");
-      titleContainer.textContent = "Yükleniyor...";
+      titleContainer.textContent = "Loading...";
       let browser = gBrowser.createBrowser({});
       browser.setAttribute("disablefullscreen", "true");
       browser.setAttribute("src", data.url);
@@ -522,7 +532,7 @@ if (!AddonManager) {
   
     _getWebPanelIcon(url, element) {
    
-    // Stil özelliklerini uygulama
+    // Stil ozelliklerini uygulama
     
     // Favicon URL'sini alma
     let { preferredURI } = Services.uriFixup.getFixupURIInfo(url);
@@ -532,7 +542,7 @@ if (!AddonManager) {
     //element.setAttribute("image", `page-icon:${preferredURI.spec}`);
   
   
-    // Favicon'u yükleme
+    // Favicon'u yukleme
    fetch(`https://s2.googleusercontent.com/s2/favicons?domain_url=${url}&size=50`).then(async response => {
         if (response.ok) {
             let blob = await response.blob();
@@ -746,6 +756,7 @@ if (!AddonManager) {
       const url = gContextMenu.linkURL || gContextMenu.target.ownerDocument.location.href;
       this._createNewPanel(url);
     },
+
     getExtensionIdFromIconUrl(iconUrl) {
       const matches = iconUrl.match(/moz-extension:\/\/([a-f0-9\-]+)\//);
       return matches ? matches[1] : null;
@@ -758,38 +769,43 @@ if (!AddonManager) {
         const manifest = await response.json();
         const sidebarUrl = manifest.sidebar_action?.default_panel;
         if (!sidebarUrl) {
-          throw new Error("Sidebar URL bulunamadı.");
+          throw new Error("Sidebar URL bulunamadi.");
         }
         return `moz-extension://${extensionId}/${sidebarUrl}`;
       } catch (error) {
-        console.error("Manifest dosyası yüklenirken hata oluştu:", error);
+        console.error("Manifest dosyasi yuklenirken hata oluştu:", error);
         return null;
       }
     },
   
     async populateExtensionsList() {
       this.init();
-      console.log("populateExtensionsList fonksiyonu çağrıldı");
-      this.extensionsList = document.getElementById("humabar-extensions-list");
-    
-      if (!this.extensionsList) {
-        console.error("humabar-extensions-list elementi bulunamadı");
+      /*console.log("populateExtensionsList fonksiyonu cagrildi");
+      let extensionsList = document.getElementById("humabar-extensions-list");
+
+      const extElement = document.createElement("div");
+      extElement.textContent = "helo";
+
+
+      extensionsList.appendChild(extElement);
+      if (!extensionsList) {
+        console.error("humabar-extensions-list elementi bulunamadi");
         return;
       }
     
-      this.extensionsList.innerHTML = '';
+      extensionsList.innerHTML = '';
     
       if (typeof window.SidebarController === 'undefined' || typeof window.SidebarController.getExtensions !== 'function') {
-        console.error("SidebarController veya getExtensions metodu tanımlı değil");
+        console.error("SidebarController veya getExtensions metodu tanimli degil");
         return;
       }
     
       try {
         const extensions = window.SidebarController.getExtensions();
-        console.log("Alınan uzantılar:", extensions);
+        console.log("Alinan uzantilar:", extensions);
     
         if (!Array.isArray(extensions)) {
-          console.error("getExtensions bir dizi döndürmedi");
+          console.error("getExtensions bir dizi dondurmedi");
           return;
         }
     
@@ -816,7 +832,7 @@ if (!AddonManager) {
     
          
           const iconUrl = await this.getIconFromManifest(extensionId);
-          image.setAttribute("src", iconUrl);
+          //image.setAttribute("src", iconUrl);
           image.setAttribute("alt", extension.tooltiptext);
     
           button.appendChild(image);
@@ -831,19 +847,19 @@ if (!AddonManager) {
                 this.openWebPanel(sidebarUrl, extension.tooltiptext)
                 
               } else {
-                console.error("Güvenli olmayan protokol:", urlObject.protocol);
+                console.error("Guvenli olmayan protokol:", urlObject.protocol);
               }
             } catch (error) {
-              console.error("Geçersiz URL:", sidebarUrl, error);
+              console.error("Gecersiz URL:", sidebarUrl, error);
             }
           });
     
-          this.extensionsList.appendChild(button);
+          extensionsList.appendChild(button);
         }
     
       } catch (error) {
-        console.error("Uzantıları alırken hata oluştu:", error);
-      }
+        console.error("Uzantilari alirken hata oluştu:", error);
+      }*/
     },
     
    
@@ -860,7 +876,7 @@ if (!AddonManager) {
           return `moz-extension://${extensionId}/${iconUrl}`;
         }
       } catch (error) {
-        console.error("Manifest dosyası okunamadı:", error);
+        console.error("Manifest dosyasi okunamadi:", error);
       }
       
       
@@ -923,27 +939,27 @@ if (!AddonManager) {
    
    
           
-      button1.textContent = 'Geniş Kipe Geç ';
+      button1.textContent = 'switch to wide mode';
       button1.addEventListener("click", () => {
-        alert("helo1");
+        alert("Restart browser to apply changes");
   
         this._maximizeHumaBar();
   
   
       })
   
-      button2.textContent = 'Kapalı Kipe Geç ';
+      button2.textContent = 'switch to off mode ';
       button2.addEventListener("click", () => {
-        alert("helo2");
+      alert("Restart browser to apply changes");
   
        this._closeHumaBar();
   
   
       })
   
-      button3.textContent = 'İnce Kipe Geç';
+      button3.textContent = 'Switch to Thin Mode';
       button3.addEventListener("click", () => {
-        alert("helooo");
+        alert("Restart browser to apply changes");
   
         this._minizmizeHumaBar();
         
@@ -989,7 +1005,7 @@ if (!AddonManager) {
           let addon = await AddonManager.getAddonByID(currentTheme);
   
           if (addon) {
-              // rootURI'den manifest.json dosyasının tam yolunu oluşturun
+              // rootURI'den manifest.json dosyasinin tam yolunu oluşturun
               console.log(addon);
               console.log(addon.__AddonInternal__);
               console.log(addon.__AddonInternal__.rootURI);
@@ -1023,7 +1039,7 @@ if (!AddonManager) {
               //this.applyStyles(themePalette);
               
           } else {
-              console.error("Tema eklentisi bulunamadı");
+              console.error("Tema eklentisi bulunamadi");
           }
       } catch (error) {
           console.error("Hata oluştu:", error);
@@ -1051,311 +1067,4 @@ if (!AddonManager) {
   
   
   };
-  
-  gHumaBrowserManagerSidebar.populateExtensionsList();
-  
-  
-  
-  
-   
-  if (!AddonManager) {
-    var { AddonManager } = ChromeUtils.importESModule(
-      "resource://gre/modules/AddonManager.sys.mjs"
-    ); 
-  }
-  
-  var gHumaUIManager = {
-    openAndChangeToTab(url, options) {
-      if (window.ownerGlobal.parent) {
-        let tab = window.ownerGlobal.parent.gBrowser.addTrustedTab(url, options);
-        window.ownerGlobal.parent.gBrowser.selectedTab = tab;
-        return tab;
-      }
-      let tab = window.gBrowser.addTrustedTab(url, options);
-      window.gBrowser.selectedTab = tab;
-      return tab;
-    },
-  
-    generateUuidv4() {
-      return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
-        (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
-      );
-    },
-    
-    toogleBookmarksSidebar() {
-      const button = document.getElementById('huma-vt-bookmark-button');
-      SidebarController.toggle('viewBookmarksSidebar', button);
-    },
-  
-   /* _kip(){
-      gHumaVTBrowserManagerSidebar._kip();
-    },
-    _bar(){
-      gHumaVTBrowserManagerSidebar._bar();
-    }*/
-  };
-  
-  
-  var gHumaVTBrowserManagerSidebar = {
-    _sidebarElement: null,
-   
-    _humaBarElement: null,
-    _currentPanel: null,
-    _lastOpenedPanel: null,
-    _hasChangedConfig: true,
-    _splitterElement: null,
-    _hSplitterElement: null,
-    _hasRegisteredPinnedClickOutside: false,
-    _isDragging: false,
-    contextTab: null,
-  
-    DEFAULT_MOBILE_USER_AGENT: "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36 Edg/114.0.1823.79",
-    MAX_SIDEBAR_PANELS: 8, // +1 for the add panel button
-    MAX_RUNS: 3,
-  
-    init() {
-   
-      this.populateExtensionsList();
-      this.update();
-      this.open(); // avoid caching
-   
-  
-    
-      
-    },
-  
-    open() {
-      let sidebar = document.getElementById("huma-vt-sidebar-web-panel");
-      sidebar.removeAttribute("hidden");
-      this.update();
-    },
-  
-    update() {
-     
-      console.log("hleo")
-    },
-  
-  
-   
-    _closeSidebarPanel() {
-      let sidebar = document.getElementById("huma-vt-sidebar-web-panel");
-      sidebar.setAttribute("hidden", "true");
-  
-      let sidebarTwo = document.getElementById("huma-vt-sidebar-web-panel-wrapper");
-      sidebarTwo.style.display = "none";
-      this._lastOpenedPanel = this._currentPanel;
-      this._currentPanel = null;
-    },
-  
-    _showWeb() {
-      let sidebar = document.getElementById("huma-vt-sidebar-web-panel");
-      let sidebarTwo = document.getElementById("huma-vt-sidebar-web-panel-wrapper");
-      sidebar.setAttribute("hidden", "false");
-      sidebarTwo.style.display = "flex";
-    },
-  
-    _handleClick(event) {
-      let target = event.target;
-      let panelId = target.getAttribute("huma-vt-sidebar-id");
-      if (this._currentPanel === panelId) {
-        return;
-      }
-      this._showWeb();
-      this._currentPanel = panelId;
-   
-    },
-  
-   
-   
-   
-  
-    _createWebPanelBrowser(data) {
-      
-      let browser = gBrowser.createBrowser({});
-      browser.setAttribute("disablefullscreen", "true");
-      browser.setAttribute("src", data.url);
-      browser.setAttribute("huma-vt-sidebar-id", data.id);
-      browser.setAttribute("disableglobalhistory", "true");
-      browser.setAttribute("autoscroll", "false");
-      browser.setAttribute("autocompletepopup", "PopupAutoComplete");
-      browser.setAttribute("contextmenu", "contentAreaContextMenu");
-      browser.setAttribute("disablesecurity", "true");
-      browser.addEventListener("pagetitlechanged", (function(event) {
-        let browser = event.target;
-        let title = browser.contentTitle;
-        if (!title) {
-          return;
-        }
-        let id = browser.getAttribute("huma-vt-sidebar-id");
-       
-      }).bind(this));
-      return browser;
-    },
-   
-  
-    _getBrowserById(id) {
-      let sidebar = document.getElementById("huma-vt-sidebar-web-panel");
-      return sidebar.querySelector(`browser[huma-vt-sidebar-id="${id}"]`);
-    },
-  
-    _getCurrentBrowser() {
-      return this._getBrowserById(this._currentPanel);
-    },
-  
-   
-  
-    openWebPanel(url, title) {
-      this._showWeb();
-      let browser = this._getCurrentBrowser();
-      if (!browser) {
-        browser = this._createWebPanelBrowser({ url: url, id: 'temp' });
-        let browserContainers = document.getElementById("huma-vt-sidebar-web-panel-browser-containers");
-        browserContainers.appendChild(browser);
-      } else {
-        browser.setAttribute("src", url);
-      }
-      
-      this.open();
-    },
-  
-    close() {
-      this._hideAllWebPanels();
-      this._closeSidebarPanel();
-      this._updateSidebarButton();
-      
-    },
-   
-  
-    get sidebarElement() {
-      if (!this._sidebarElement) {
-        this._sidebarElement = document.getElementById("huma-vt-sidebar-panels-sites-container");
-      }
-      return this._sidebarElement;
-    },
-   
-   
-    getExtensionIdFromIconUrl(iconUrl) {
-      const matches = iconUrl.match(/moz-extension:\/\/([a-f0-9\-]+)\//);
-      return matches ? matches[1] : null;
-    },
-  
-    async getExtensionSidebarUrl(extensionId) {
-      try {
-        const manifestUrl = `moz-extension://${extensionId}/manifest.json`;
-        const response = await fetch(manifestUrl);
-        const manifest = await response.json();
-        const sidebarUrl = manifest.sidebar_action?.default_panel;
-        if (!sidebarUrl) {
-          throw new Error("Sidebar URL bulunamadı.");
-        }
-        return `moz-extension://${extensionId}/${sidebarUrl}`;
-      } catch (error) {
-        console.error("Manifest dosyası yüklenirken hata oluştu:", error);
-        return null;
-      }
-    },
-  
-    async populateExtensionsList() {
-   
-      console.log("populateExtensionsList fonksiyonu çağrıldı");
-      this.extensionsList = document.getElementById("huma-vtbar-extensions-list");
-    
-      if (!this.extensionsList) {
-        console.error("humabar-extensions-list elementi bulunamadı");
-        return;
-      }
-    
-      this.extensionsList.innerHTML = '';
-    
-      if (typeof window.SidebarController === 'undefined' || typeof window.SidebarController.getExtensions !== 'function') {
-        console.error("SidebarController veya getExtensions metodu tanımlı değil");
-        return;
-      }
-    
-      try {
-        const extensions = window.SidebarController.getExtensions();
-        console.log("Alınan uzantılar:", extensions);
-    
-        if (!Array.isArray(extensions)) {
-          console.error("getExtensions bir dizi döndürmedi");
-          return;
-        }
-    
-        for (const extension of extensions) {
-          const extensionId = this.getExtensionIdFromIconUrl(extension.icon);
-          
-          if (!extensionId) {
-            continue;
-          }
-    
-          const sidebarUrl = await this.getExtensionSidebarUrl(extensionId);
-    
-          if (!sidebarUrl) {
-            continue;
-          }
-    
-          const button = document.createElement("a");
-          button.className = "humabar-button";
-          button.setAttribute("tooltiptext", extension.tooltiptext);
-          button.setAttribute("extensionId", extension.extensionId);
-    
-          const image = document.createElement("img");
-          image.className = "humabar-button-icon";
-    
-         
-          const iconUrl = await this.getIconFromManifest(extensionId);
-          image.setAttribute("src", iconUrl);
-          image.setAttribute("alt", extension.tooltiptext);
-    
-          button.appendChild(image);
-    
-          button.addEventListener("click", (event) => {
-            event.preventDefault();
-            try {
-              const urlObject = new URL(sidebarUrl);
-              
-              if (urlObject.protocol === 'http:' || urlObject.protocol === 'https:' || urlObject.protocol === 'moz-extension:') {
-                //window.open(sidebarUrl, '_blank', 'noopener,noreferrer');
-                this.openWebPanel(sidebarUrl, extension.tooltiptext)
-                
-              } else {
-                console.error("Güvenli olmayan protokol:", urlObject.protocol);
-              }
-            } catch (error) {
-              console.error("Geçersiz URL:", sidebarUrl, error);
-            }
-          });
-    
-          this.extensionsList.appendChild(button);
-        }
-    
-      } catch (error) {
-        console.error("Uzantıları alırken hata oluştu:", error);
-      }
-    },
-    
-   
-    async getIconFromManifest(extensionId) {
-      try {
-        const manifestUrl = `moz-extension://${extensionId}/manifest.json`;
-        const response = await fetch(manifestUrl);
-        const manifest = await response.json();
-        
-       
-        const iconUrl = manifest.icons && (manifest.icons['48'] || manifest.icons['32'] || manifest.icons['16']);
-        
-        if (iconUrl) {
-          return `moz-extension://${extensionId}/${iconUrl}`;
-        }
-      } catch (error) {
-        console.error("Manifest dosyası okunamadı:", error);
-      }
-      
-      
-      return "chrome://branding/content/about-logo.png";
-    },
-  
-  
-  };
-  
-  gHumaVTBrowserManagerSidebar.populateExtensionsList();
+gHumaBrowserManagerSidebar.populateExtensionsList();

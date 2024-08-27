@@ -33,7 +33,7 @@
   display: flex;
   flex-direction: column;
 
-  --main-pane-width: 664px;
+  --main-pane-width: 750px;
 }
 
 /*
@@ -47,7 +47,7 @@
 }
 
 .main-content {
-  padding-top: 0;
+  padding-top: 50px;
   /* the 32px min-height, plus 20+30px margin below, plus some leeway: */
   scroll-padding-top: 90px;
   contain: inline-size;
@@ -56,6 +56,7 @@
 .pane-container {
   /* A workaround to keep the container always float on the `top: 0` (Bug 1377009) */
   display: block;
+  padding-top: 50px;
   width: min(100%, var(--main-pane-width));
   min-width: min-content;
 }
@@ -63,6 +64,31 @@
 #mainPrefPane {
   width: 100%;
   padding: 0;
+  /*background-color: #484848;*/
+  border-radius: 15px;
+  padding: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  #mainPrefPane {
+    width: 100%;
+    padding: 0;
+    background-color: #484848;
+    border-radius: 15px;
+    padding: 20px;
+  }
+}
+
+/* Açık tema */
+@media (prefers-color-scheme: light) {
+
+  #mainPrefPane {
+    width: 100%;
+    padding: 0;
+    background-color: #e8dede;
+    border-radius: 15px;
+    padding: 20px;
+  }
 }
 
 html|div[data-category],
@@ -235,6 +261,15 @@ radio {
 #category-more-from-mozilla > .category-icon {
   list-style-image: url("chrome://browser/skin/preferences/mozilla-logo.svg");
 }
+
+#category-more-from-huma > .category-icon {
+  list-style-image: url("chrome://global/skin/icons/developer.svg");
+}
+
+#category-humabar > .category-icon {
+  list-style-image: url("chrome://browser/skin/sidebars-right.svg");
+}
+
 
 /* All panes */
 
@@ -1007,20 +1042,11 @@ dialog > .sync-engines-list + hbox {
   margin-top: 0.3em;
 }
 
-.sticky-container {
-  position: sticky;
-  background-color: var(--in-content-page-background);
-  top: 0;
-  z-index: 1;
-  /* The sticky-container should have the capability to cover all spotlight area. */
-  width: calc(100% + 8px);
-  margin-inline: -4px;
-  padding-inline: 4px;
-}
+ 
 
 .sticky-inner-container {
   flex: 1;
-  max-width: var(--main-pane-width);
+  max-width: 120px;
 }
 
 .search-tooltip {

@@ -64,6 +64,19 @@ pane-sync-title3 = Sync
 category-sync3 =
     .tooltiptext = { pane-sync-title3 }
 
+
+
+pane-huma-title = About Hüma
+
+category-humabar =
+    .tooltiptext = { pane-humabar-title }
+
+pane-humabar-title = Edit Sidebar
+
+category-more-from-huma =
+    .tooltiptext = { pane-huma-title }
+
+
 settings-pane-labs-title = { -firefoxlabs-brand-name }
 settings-category-labs =
     .tooltiptext = { -firefoxlabs-brand-name }
@@ -695,7 +708,7 @@ choose-bookmark =
     .label = Use Bookmark…
     .accesskey = B
 
-## Home Section - Firefox Home Content Customization
+## Home Section - Hüma Home Content Customization
 
 home-prefs-content-header2 = { -firefox-home-brand-name } Content
 home-prefs-content-description2 = Choose what content you want on your { -firefox-home-brand-name } screen.
@@ -972,7 +985,7 @@ sync-engine-payment-methods2 =
 
 sync-engine-addons =
     .label = Add-ons
-    .tooltiptext = Extensions and themes for Firefox desktop
+    .tooltiptext = Extensions and themes for Hüma desktop
     .accesskey = A
 
 sync-engine-settings =
