@@ -1131,3 +1131,11 @@ file-picker-crashed-save-nowhere = The Windows file-dialog has crashed. No defau
 file-picker-crashed-show-in-folder =
     .label = Show in Folder
     .accessKey = F
+
+ua-link = https://github.com/VastSea0/Huma/wiki/H%C3%BCma-Web-Uygulamalar%C4%B1-B%C3%B6lmesi#kullan%C4%B1m
+huma-sidebar-introduction-title = Welcome to Hüma!
+huma-sidebar-introduction-description = Have you just seen this place? You'll have some great “WebApps” running here... \n If you have any problems with a visualization, please click on the Home button, feel free to contact us if you have any problems
+huma-new-web-panel-url = Enter custom URL.
+huma-new-web-panel-user-agent = Will it have a mobile view?
+
+huma-web-side-panel-context-add-to-panel = Add this site to the panel
