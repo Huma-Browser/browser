@@ -8,6 +8,7 @@ DIRS += [
     "formautofill",
     "screenshots",
     "webcompat",
+    "huma-gezgini",
     "report-site-issue",
     "pictureinpicture",
     "search-detection",
