@@ -14,7 +14,7 @@
       - [ ] Lepton teması
     - [x] Stiller
       - [ ] sayfalar
-        -[x] Ayarlar sayfası
+        - [x] Ayarlar sayfası
           - [x] Genel stiller
             - [x] kişiselleştirme (0b1)
               - [x] Kurulu tema ile uyumlu renk alır (0b1)
@@ -54,6 +54,9 @@
       - [x] Ayarlar sayfasından yönetilebilir (0b1)
         - [x] Tema ile uyumlu renk alır (0b1)
     - [ ] PWA destekler
+    - [x] Dikey sekmeleri destekler (0b1)
+    - [ ] Çalışma Alanları (workspaces)
+    - [ ] UserChromeCSS ve UserContentCSS Loader
     - [x] Eklentiler
       - [x] Hüma gezgini (0a11)
         - [x] Sidebar (0a11)
