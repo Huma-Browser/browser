@@ -19,7 +19,6 @@
             - [x] kişiselleştirme (0b1)
               - [x] Kurulu tema ile uyumlu renk alır (0b1)
           - [x] Kategoriler
-          - [ ] UserChromeCSS ve UserContentCSS Loader
             - [x] Kategori iconları
             - [x] Kategori stilleri
     - [ ] Hüma Ansiklopedi (0b1: belki iptal edilir)
@@ -56,7 +55,8 @@
         - [x] Tema ile uyumlu renk alır (0b1)
     - [ ] PWA destekler
     - [x] Dikey sekmeleri destekler (0b1)
-    - [ ] Workspace destekler
+    - [ ] Çalışma Alanları (workspaces)
+    - [ ] UserChromeCSS ve UserContentCSS Loader
     - [x] Eklentiler
       - [x] Hüma gezgini (0a11)
         - [x] Sidebar (0a11)
