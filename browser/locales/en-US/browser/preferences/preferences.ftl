@@ -66,7 +66,7 @@ category-sync3 =
 
 
 
-pane-huma-title = About Hüma
+pane-huma-title = Look N Feel
 
 category-humabar =
     .tooltiptext = { pane-humabar-title }
