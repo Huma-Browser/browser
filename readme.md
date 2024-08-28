@@ -2,8 +2,6 @@
 
 ## TO-DO
 
-## TO-DO
-
 - [x] Tarayıcı
     - [x] Grafik (0a4)
       - [X] Logolar (0a4)
@@ -16,11 +14,12 @@
       - [ ] Lepton teması
     - [x] Stiller
       - [ ] sayfalar
-        -[x] Ayarlar sayfası
+        - [x] Ayarlar sayfası
           - [x] Genel stiller
             - [x] kişiselleştirme (0b1)
               - [x] Kurulu tema ile uyumlu renk alır (0b1)
           - [x] Kategoriler
+          - [ ] UserChromeCSS ve UserContentCSS Loader
             - [x] Kategori iconları
             - [x] Kategori stilleri
     - [ ] Hüma Ansiklopedi (0b1: belki iptal edilir)
@@ -56,6 +55,8 @@
       - [x] Ayarlar sayfasından yönetilebilir (0b1)
         - [x] Tema ile uyumlu renk alır (0b1)
     - [ ] PWA destekler
+    - [x] Dikey sekmeleri destekler (0b1)
+    - [ ] Workspace destekler
     - [x] Eklentiler
       - [x] Hüma gezgini (0a11)
         - [x] Sidebar (0a11)
