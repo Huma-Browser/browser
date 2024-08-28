@@ -366,7 +366,7 @@ if (!AddonManager) {
     
     _createNewUrl() {
       this._openAddPanelDialog();
-      console.log("Create new URL clicked");
+     //console.log("Create new URL clicked");
     },
   
   
@@ -730,8 +730,8 @@ if (!AddonManager) {
       this._lastOpenedPanel = null;
       this.update();
       Services.prefs.setStringPref("huma.sidebar.data", JSON.stringify(data));
-      console.log(JSON.stringify(data));
-      console.log("HELO")
+     //console.log(JSON.stringify(data));
+     //console.log("HELO")
     },
   
     contextUnload() {
@@ -802,7 +802,7 @@ if (!AddonManager) {
     
       try {
         const extensions = window.SidebarController.getExtensions();
-        console.log("Alinan uzantilar:", extensions);
+       //console.log("Alinan uzantilar:", extensions);
     
         if (!Array.isArray(extensions)) {
           console.error("getExtensions bir dizi dondurmedi");
@@ -942,17 +942,19 @@ if (!AddonManager) {
       button1.textContent = 'switch to wide mode';
       button1.addEventListener("click", () => {
         alert("Restart browser to apply changes");
+        
   
         this._maximizeHumaBar();
-  
   
       })
   
       button2.textContent = 'switch to off mode ';
       button2.addEventListener("click", () => {
       alert("Restart browser to apply changes");
+      
   
        this._closeHumaBar();
+       this.init();
   
   
       })
@@ -960,9 +962,11 @@ if (!AddonManager) {
       button3.textContent = 'Switch to Thin Mode';
       button3.addEventListener("click", () => {
         alert("Restart browser to apply changes");
+        
   
         this._minizmizeHumaBar();
         
+        this.init();
        
   
   
@@ -999,19 +1003,19 @@ if (!AddonManager) {
       try {
           // Aktif tema ID
           let currentTheme = Services.prefs.getCharPref("extensions.activeThemeID");
-          console.log("Aktif tema ID'si:", currentTheme);
+         //console.log("Aktif tema ID'si:", currentTheme);
   
           // Eklenti nesnesi
           let addon = await AddonManager.getAddonByID(currentTheme);
   
           if (addon) {
               // rootURI'den manifest.json dosyasinin tam yolunu oluşturun
-              console.log(addon);
-              console.log(addon.__AddonInternal__);
-              console.log(addon.__AddonInternal__.rootURI);
+             //console.log(addon);
+             //console.log(addon.__AddonInternal__);
+             //console.log(addon.__AddonInternal__.rootURI);
   
               const manifestPath = addon.__AddonInternal__.rootURI + "manifest.json";
-              console.log("Manifest Path:", manifestPath);
+             //console.log("Manifest Path:", manifestPath);
   
               
               let response = await fetch(manifestPath);
@@ -1019,7 +1023,7 @@ if (!AddonManager) {
                   throw new Error(`HTTP error! Status: ${response.status}`);
               }
               let manifestContent = await response.json();
-              console.log("Manifest Content:", manifestContent);
+             //console.log("Manifest Content:", manifestContent);
               //toolbar: "rgb(20, 20, 25)"
               //toolbar_field: "rgb(32, 32, 35)"
               let themeBgColor = manifestContent.theme.colors.toolbar;
@@ -1028,7 +1032,7 @@ if (!AddonManager) {
                 "backgroundColor": themeBgColor,
                 "pagePaneColor": themePaneContentColor,
               }
-              console.log(themePalette);
+             //console.log(themePalette);
               //this.applyPalette(themePalette)
   
               this.humaBarElement.style.backgroundColor = themePalette.backgroundColor;

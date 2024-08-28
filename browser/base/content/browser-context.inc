@@ -145,25 +145,24 @@
       <menuitem id="context-media-unmute"
                 data-l10n-id="main-context-menu-media-unmute"
                 />
-
-
+ 
       <menu id="context-humaAddToWebPanel" data-l10n-id="main-context-menu-humabar">
         <menupopup>
             <menuitem id="context-humaAddToWebPanel"
                 data-l10n-id="main-context-menu-humabar-reload"
-                oncommand="gContextMenu.humaContext('reload-humabar');"/>
+                oncommand="gHumaBrowserManagerSidebar.init()"/>
             <menuitem id="context-humaAddToWebPanel"
                 data-l10n-id="main-context-menu-humabar-open"
-                oncommand="gContextMenu.humaContext('open-humabar');"/>
+                oncommand="gHumaBrowserManagerSidebar._openHumaBar()"/>
             <menuitem id="context-humaAddToWebPanel"
                 data-l10n-id="main-context-menu-humabar-close"
-                oncommand="gContextMenu.humaContext('close-humabar');"/>
+                oncommand="gHumaBrowserManagerSidebar._closeHumaBar()"/>
             <menuitem id="context-humaAddToWebPanel"
                 data-l10n-id="main-context-menu-humabar-min"
-                oncommand="gContextMenu.humaContext('minimize-humabar');"/>
+                oncommand="gHumaBrowserManagerSidebar._minizmizeHumaBar()"/>
             <menuitem id="context-humaAddToWebPanel"
                 data-l10n-id="main-context-menu-humabar-max"
-                oncommand="gContextMenu.humaContext('maximize-humabar');"/>
+                oncommand="gHumaBrowserManagerSidebar._maximizeHumaBar()"/>
         </menupopup>
       </menu>
 
@@ -372,6 +371,8 @@
       <menuitem id="context-searchselect-private"/>
       <menuitem id="context-translate-selection"
                 data-l10n-id="main-context-menu-translate-selection"/>
+
+
       <menu id="context-ask-chat"/>
 
       <menuseparator id="frame-sep"/>

@@ -14,6 +14,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
   DevToolsShim: "chrome://devtools-startup/content/DevToolsShim.sys.mjs",
   E10SUtils: "resource://gre/modules/E10SUtils.sys.mjs",
   GenAI: "resource:///modules/GenAI.sys.mjs",
+  gHumaBrowserManagerSidebar: "chrome://browser/content/HumaSidebarManager.mjs",
   LoginHelper: "resource://gre/modules/LoginHelper.sys.mjs",
   LoginManagerContextMenu:
     "resource://gre/modules/LoginManagerContextMenu.sys.mjs",
@@ -2492,23 +2493,22 @@ export class nsContextMenu {
   humaContext(command, data) {
     switch(command){
       case "minimize-humabar":
-        gHumaBrowserManagerSidebar._minizmizeHumaBar();
+        lazy.gHumaBrowserManagerSidebar._minizmizeHumaBar();
         break;
       case "maximize-humabar":
-        gHumaBrowserManagerSidebar._maximizeHumaBar();
+        lazy.gHumaBrowserManagerSidebar._maximizeHumaBar();
         break;
       case "close-humabar":
-        gHumaBrowserManagerSidebar._closeHumaBar();
+        lazy.gHumaBrowserManagerSidebar._closeHumaBar();
         break;
       case "open-humabar":
-        gHumaBrowserManagerSidebar._openHumaBar();
+        lazy.gHumaBrowserManagerSidebar._openHumaBar();
         break;
       case "reload-humabar":
-         
-          gHumaBrowserManagerSidebar.populateExtensionsList();
-          break;
+        lazy.gHumaBrowserManagerSidebar.populateExtensionsList();
+        break;
       default:
-        gHumaBrowserManagerSidebar._openHumaBar();
+        lazy.gHumaBrowserManagerSidebar._openHumaBar();
         break;
     };
   

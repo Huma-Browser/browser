@@ -9,12 +9,21 @@ var { XPCOMUtils } = ChromeUtils.importESModule(
 var { AppConstants } = ChromeUtils.importESModule(
   "resource://gre/modules/AppConstants.sys.mjs"
 );
+
+var { gHumaBrowserManagerSidebar } = ChromeUtils.importESModule(
+  "chrome://browser/content/HumaSidebarManager.mjs"
+); 
+
 ChromeUtils.importESModule(
   "resource://gre/modules/MemoryNotificationDB.sys.mjs"
 );
 ChromeUtils.importESModule("resource://gre/modules/NotificationDB.sys.mjs");
 
 // lazy module getters
+
+ 
+
+ 
 
 ChromeUtils.defineESModuleGetters(this, {
   AMTelemetry: "resource://gre/modules/AddonManager.sys.mjs",

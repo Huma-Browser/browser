@@ -7,6 +7,7 @@
   "gFissionBrowser",
   "gBrowserAllowScriptsToCloseInitialTabs",
   "gEditUIVisible",
+  "gHumaBrowserManagerSidebarr",
   "gReduceMotionSetting",
   "gReduceMotionOverride",
   "shouldSuppressPopupNotifications",
