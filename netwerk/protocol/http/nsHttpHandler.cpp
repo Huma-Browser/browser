@@ -926,13 +926,14 @@ void nsHttpHandler::BuildUserAgent() {
     mUserAgent += ' ';
     mUserAgent += mCompatFirefox;
   }
-  if (!isFirefox) {
-    // App portion
-    mUserAgent += ' ';
-    mUserAgent += mAppName;
-    mUserAgent += '/';
-    mUserAgent += mAppVersion;
-  }
+  // Fixed bug h4: UserAgent -> moz.build file
+	if (!isFirefox) {
+	  // App portion
+	  mUserAgent += ' ';
+	  mUserAgent += mAppName;
+	  mUserAgent += '/';
+	  mUserAgent += mAppVersion;
+	}
 }
 
 #ifdef XP_WIN
