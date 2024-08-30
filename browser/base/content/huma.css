@@ -313,3 +313,426 @@ HümaBar Styles...
 #humabar-item-settings {
   max-height: 48px;
 }
+
+
+ 
+#huma-workspaces-button {
+	margin-inline-start: 4px;
+ 
+	max-width: 225px;
+  width: var(--collapsed-tab-width);
+  border: 1px solid var(--huma-colors-border);
+  border-radius: 50px;
+  height: calc(var(--huma-sidebar-action-button-width) - 10px) !important;
+  margin-bottom: 5px !important;
+  
+    
+  align-items: center;
+  display: flex;
+	display: flex;
+	min-height: 25px;
+ 
+}
+#PanelUI-huma-profiles {
+  --menu-panel-width: 19em;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+#PanelUI-huma-profiles-header {
+  width: 280px;
+  height: 130px;
+  background: color-mix(in srgb, var(--huma-primary-color) 80%, white 20%);
+  position: relative;
+}
+
+#PanelUI-huma-profiles-user-picture {
+  background-image: var(--avatar-image-url);
+  width: 75px;
+  height: 75px;
+  border: 4px var(--arrowpanel-background) solid;
+  background-color: var(--huma-colors-primary-foreground);
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  transform: translateY(100%);
+}
+
+.PanelUI-huma-profiles-item {
+  position: relative;
+  display: flex;
+  padding: 6px 10px;
+  font: menu;
+  align-items: center;
+}
+
+#PanelUI-huma-profiles-list .PanelUI-huma-profiles-item {
+  margin-bottom: 2px;
+  border-radius: 5px;
+  margin: 2px 5px;
+}
+
+#PanelUI-huma-profiles-list > toolbarseparator:first-child {
+  margin: 5px;
+}
+
+.PanelUI-huma-profiles-item:hover {
+  background: var(--panel-item-hover-bgcolor);
+  color: inherit;
+}
+
+.PanelUI-huma-profiles-item::after {
+  content: '';
+  background-image: url("chrome://global/skin/icons/arrow-right.svg");
+  background-size: 1em;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1em;
+  height: 1em;
+  margin-left: auto;
+  pointer-events: none;
+  top: 50%;
+  right: 1em;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+@media (prefers-color-scheme: dark) {
+  .PanelUI-huma-profiles-item::after {
+    filter: invert(1);
+  }
+}
+
+#PanelUI-huma-profiles-list .PanelUI-huma-profiles-item-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  margin: 1px 0.5em 1px 1px;
+}
+
+#PanelUI-huma-profiles-list .PanelUI-huma-profiles-item-name {
+  font-weight: normal;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+#PanelUI-huma-profiles-current-info {
+  --huma-separation-from-content: 35px;
+  margin-top: calc(var(--huma-separation-from-content) + 30px); /** Ignore the profile picture */
+}
+
+#PanelUI-huma-profiles-current-name {
+  font-size: 1.3em;
+  font-weight: 600;
+  line-height: 0.5;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+
+#PanelUI-huma-profiles toolbarbutton::after {
+  display: none;
+}
+
+#PanelUI-huma-profiles toolbarbutton {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+
+#PanelUI-huma-profiles toolbarbutton:last-child {
+  margin-bottom: 5px !important;
+}
+
+#PanelUI-huma-profiles-current-profile-current {
+  font-size: 13px;
+  opacity: 0.5;
+  margin: 0 auto var(--huma-separation-from-content) auto;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+#PanelUI-huma-profiles-actions {
+  color-scheme: dark;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 10px !important;
+  padding: 1px 10px !important;
+  transition: .1s;
+  color: light-dark(white, black);
+  background: light-dark(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
+}
+
+#PanelUI-huma-profiles-managePrfs:hover {
+  background: var(--panel-item-hover-bgcolor);
+}
+
+#PanelUI-huma-profiles-actions toolbarbutton {
+  cursor: pointer;
+  padding: 0;
+}
+
+#PanelUI-huma-profiles-actions toolbarbutton .toolbarbutton-icon {
+  width: 14px !important;
+}
+
+#PanelUI-huma-profiles-actions toolbarbutton:not(:first-child) {
+  margin-left: 10px;
+}
+
+#PanelUI-huma-profiles-actions toolbarbutton label {
+  display: none !important;
+}
+
+/* Split view panel */
+
+#humaSplitViewModifierViewDefault {
+  min-width: 180px;
+  min-height: 180px;
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  gap: 10px;
+  padding: 15px;
+}
+
+#humaSplitViewModifierViewDefault > vbox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+#humaSplitViewModifierViewDefault .huma-split-view-modifier-preview {
+  border-radius: 5px;
+  border: 1px solid var(--huma-colors-border);
+  width: 100px;
+  height: 70px;
+  overflow: hidden;
+  padding: 5px;
+  user-select: none;
+  font-weight: 500;
+}
+
+#humaSplitViewModifierViewDefault .huma-split-view-modifier-preview.active {
+  box-shadow: 0 0 0 2px var(--huma-primary-color);
+  border-width: 0px;
+}
+
+#humaSplitViewModifierViewDefault p {
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+#humaSplitViewModifierViewDefault .huma-split-view-modifier-preview box {
+  background-color: var(--huma-colors-secondary);
+  border-radius: 3px;
+  width: 100%;
+  height: 100%;
+}
+
+#humaSplitViewModifierViewDefault .huma-split-view-modifier-preview.hsep {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#humaSplitViewModifierViewDefault .huma-split-view-modifier-preview.hsep box:last-child {
+  margin-top: 5px;
+}
+
+#humaSplitViewModifierViewDefault .huma-split-view-modifier-preview.vsep box:last-child {
+  margin-left: 5px;
+}
+
+#humaSplitViewModifierViewDefault .huma-split-view-modifier-preview.grid {
+  display: grid;
+  grid-template-areas: "a b" "c b";
+  gap: 5px;
+}
+
+#humaSplitViewModifierViewDefault .huma-split-view-modifier-preview.grid box:nth-child(1) {
+  grid-area: a;
+}
+
+#humaSplitViewModifierViewDefault .huma-split-view-modifier-preview.grid box:nth-child(2) {
+  grid-area: b;
+}
+
+#humaSplitViewModifierViewDefault .huma-split-view-modifier-preview.grid box:nth-child(3) {
+  grid-area: c;
+}
+
+/* Workspaces */
+
+ 
+#PanelUI-huma-workspaces {
+  --panel-width: 320px;
+  --panel-padding: 0;
+}
+
+#PanelUI-huma-workspaces > panelmultiview {
+  align-items: flex-start;
+}
+
+#PanelUI-huma-workspaces panelmultiview panelview {
+  position: relative;
+  padding: 15px;
+  width: var(--panel-width);
+  min-height: 150px;
+}
+
+#PanelUI-huma-workspaces-create-input {
+  margin-top: 10px;
+}
+
+#PanelUI-huma-workspaces-create-icons-container toolbarbutton {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 7px;
+ 
+}
+
+#PanelUI-huma-workspaces-create-icons-container toolbarbutton[selected="true"] {
+  border-color: var(--huma-colors-secondary);
+}
+
+#PanelUI-huma-workspaces-create-icons-container toolbarbutton .toolbarbutton-icon {
+  display: none;
+}
+
+#PanelUI-huma-workspaces-create-icons-container toolbarbutton .toolbarbutton-text {
+  min-width: unset;
+}
+
+#PanelUI-huma-workspaces-create-icons-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+  gap: 8px;
+}
+
+#PanelUI-huma-workspaces-list {
+  display: flex;
+  flex-direction: column;
+}
+
+#PanelUI-huma-workspaces-list[empty="true"] {
+  font-weight: 600;
+  padding: 10px;
+  width: 100%;
+  text-align: start;
+  opacity: 0.5;
+}
+
+#PanelUI-huma-workspaces-current-info toolbarbutton:last-child {
+  margin-bottom: 0 !important;
+}
+
+#PanelUI-huma-workspaces-list toolbarbutton,
+#PanelUI-huma-workspaces-current-info toolbarbutton  {
+  padding: 5px;
+  border-radius: 7px;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  display: flex;
+  align-items: center;
+
+  &:first-child {
+    margin-top: 10px;
+  }
+
+  & .huma-workspace-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    margin-right: 10px;
+    border: 1px solid var(--huma-colors-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+  }
+
+  & .huma-workspace-name {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  & .huma-workspace-actions {
+    display: none;
+    margin: 0;
+    margin-left: auto !important;
+  }
+
+  &:hover .huma-workspace-actions,
+  & .huma-workspace-actions[active="true"] {
+    display: flex;
+  }
+}
+
+#PanelUI-huma-workspaces-current-info toolbarbutton:first-child {
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+#PanelUI-huma-workspaces-view vbox:nth-child(2) {
+  margin-top: 10px;
+}
+
+#PanelUI-huma-workspaces-new {
+  margin-left: auto;
+  min-height: 1px !important;
+  padding: 3px;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+}
+
+#PanelUI-huma-workspaces-create-footer {
+  padding-bottom: 0 !important;
+  margin-top: 20px;
+  margin-left: 0;
+  margin-bottom: 0 !important;
+  width: 100%;
+}
+
+#PanelUI-huma-workspaces-create-footer button[default="true"] {
+  width: 100%;
+}
+
+#huma-workspaces-button .huma-workspace-sidebar-icon {
+  border-radius: 50%;
+  text-align: center;
+  line-height: 16px;
+  font-size: 24px;
+  margin-inline-end: 4px;
+  padding-right: 10px
+  
+}
+
+#huma-workspaces-button .huma-workspace-sidebar-name {
+  font-size: 16px;
+  display: inline-block;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  
+
+}
+

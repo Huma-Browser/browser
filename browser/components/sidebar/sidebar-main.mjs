@@ -240,12 +240,14 @@ export default class SidebarMain extends MozLitElement {
         <button-group
           class="tools-and-extensions actions-list"
           orientation="vertical"
+          id="huma-vertical-sidebar"
         >
           ${repeat(
             this.getToolsAndExtensions().values(),
             action => action.view,
             action => this.entrypointTemplate(action)
           )}
+        
         </button-group>
         <div class="bottom-actions actions-list">
           ${repeat(

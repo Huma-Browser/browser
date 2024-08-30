@@ -68,6 +68,7 @@ browser.jar:
         content/browser/main-popupset.js                    (content/main-popupset.js)
         content/browser/huma.css                            (content/huma.css)
         content/browser/HumaSidebarManager.mjs              (content/HumaSidebarManager.mjs)
+        content/browser/HumaWorkspaces.mjs                  (content/HumaWorkspaces.mjs)
 *       content/browser/pageinfo/pageInfo.xhtml             (content/pageinfo/pageInfo.xhtml)
         content/browser/pageinfo/pageInfo.js                (content/pageinfo/pageInfo.js)
         content/browser/pageinfo/pageInfo.css               (content/pageinfo/pageInfo.css)

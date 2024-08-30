@@ -30,6 +30,9 @@ if (!AddonManager) {
       const button = document.getElementById('huma-bookmark-button');
       SidebarController.toggle('viewBookmarksSidebar', button);
     },
+    createValidXULText(text) {
+      return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
   
    /* _kip(){
       gHumaBrowserManagerSidebar._kip();

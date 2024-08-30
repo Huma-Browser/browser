@@ -111,6 +111,7 @@ ChromeUtils.defineESModuleGetters(this, {
   webrtcUI: "resource:///modules/webrtcUI.sys.mjs",
   WebsiteFilter: "resource:///modules/policies/WebsiteFilter.sys.mjs",
   ZoomUI: "resource:///modules/ZoomUI.sys.mjs",
+  HumaWorkspaces: "chrome://browser/content/HumaWorkspaces.mjs",
 });
 
 // Bug 1894239: We will move this up to ChromeUtils.defineESModuleGetters once
@@ -3446,6 +3447,7 @@ var XULBrowserWindow = {
 
     AboutReaderParent.updateReaderButton(gBrowser.selectedBrowser);
     TranslationsParent.onLocationChange(gBrowser.selectedBrowser);
+    HumaWorkspaces.onLocationChange(gBrowser.selectedBrowser);
 
     PictureInPicture.updateUrlbarToggle(gBrowser.selectedBrowser);
 

@@ -1,0 +1,140 @@
+<menupopup id="humaWebPanelContextMenu"
+            onpopupshowing="if (event.target == this) gHumaBrowserManagerSidebar.updateContextMenu(this);"
+            onpopuphidden="if (event.target == this) gHumaBrowserManagerSidebar.contextTab = null;">
+  <menuitem id="context_humaUnloadWebPanel" oncommand="gHumaBrowserManagerSidebar.contextUnload();" data-l10n-id="huma-web-side-panel-context-unload"/>
+  <menuitem id="context_humaToggleMuteWebPanel" oncommand="gHumaBrowserManagerSidebar.contextToggleMuteAudio();"/>
+  <menuitem id="context_humaToogleUAWebPanel" oncommand="gHumaBrowserManagerSidebar.contextToggleUserAgent();"/>
+  <menuitem id="context_humaOpenNewTabWebPanel" oncommand="gHumaBrowserManagerSidebar.contextOpenNewTab();" data-l10n-id="huma-web-side-panel-open-in-new-tab"/>
+  <menuseparator/>
+  <menuitem id="context_humaDeleteWebPanel" oncommand="gHumaBrowserManagerSidebar.contextDelete();" data-l10n-id="huma-web-side-panel-context-delete"/>
+</menupopup>
+
+<html:template id="template-huma-split-view-modifier">
+<panel id="humaSplitViewModifier"
+  class="panel-no-padding"
+  orient="vertical"
+  role="alertdialog"
+  type="arrow"
+  aria-labelledby="huma-split-view-modifier-header"
+  tabspecific="true">
+  <panelmultiview id="humaSplitViewModifierMultiview"
+    mainViewId="humaSplitViewModifierViewDefault">
+    <panelview id="humaSplitViewModifierViewDefault"
+      class="PanelUI-subView"
+      role="document"
+      mainview-with-header="true"
+      has-custom-header="true">
+      <vbox>
+        <box class="huma-split-view-modifier-preview grid">
+          <box></box>
+          <box></box>
+          <box></box>
+        </box>
+        <p>Grid Layout</p>
+      </vbox>
+      <vbox>
+        <box class="huma-split-view-modifier-preview hsep">
+          <box></box>
+          <box></box>
+        </box>
+        <p>Horizontal</p>
+      </vbox>
+      <vbox>
+        <box class="huma-split-view-modifier-preview vsep">
+          <box></box>
+          <box></box>
+        </box>
+        <p>Vertical</p>
+      </vbox>
+      <vbox>
+        <box class="huma-split-view-modifier-preview unsplit">
+          <box></box>
+        </box>
+        <p>Unsplit</p>
+      </vbox>
+    </panelview>
+  </panelmultiview>
+</panel>
+</html:template>
+
+<panelview id="PanelUI-huma-profiles" position="bottomleft topleft" mainview="true" side="right">
+  <vbox>
+    <html:div id="PanelUI-huma-profiles-header">
+      <html:div id="PanelUI-huma-profiles-user-picture"></html:div>
+    </html:div>
+    <vbox id="PanelUI-huma-profiles-current-info">
+      <label id="PanelUI-huma-profiles-current-name"></label>
+      <p id="PanelUI-huma-profiles-current-profile-current" data-l10n-id="huma-panel-ui-current-profile-text"></p>
+    </vbox>
+    <hbox id="PanelUI-huma-profiles-actions">
+      <toolbarbutton id="PanelUI-huma-profiles-managePrfs" oncommand="switchToTabHavingURI('about:profiles', true);" data-l10n-id="appmenu-manage-profiles" class="subviewbutton"></toolbarbutton>
+      <toolbarbutton id="PanelUI-huma-profiles-privateWin" command="Tools:PrivateBrowsing" data-l10n-id="appmenuitem-new-private-window" class="subviewbutton"></toolbarbutton>
+      <toolbarbutton id="PanelUI-huma-profiles-newProfile" oncommand="HumaProfileDialogUI.createProfileWizard();" data-l10n-id="appmenu-create-profile" class="subviewbutton"></toolbarbutton>
+    </hbox>
+    <vbox id="PanelUI-huma-profiles-list">      
+    </vbox>
+  </vbox>
+</panelview>
+
+<panel flip="slide" type="arrow" orient="vertical" id="PanelUI-huma-workspaces"   mainview="true"  >
+  <panelmultiview id="PanelUI-huma-workspaces-multiview" mainViewId="PanelUI-huma-workspaces-view">
+    <panelview id="PanelUI-huma-workspaces-view" class="PanelUI-subView" role="document" mainview-with-header="true" has-custom-header="true">
+      <vbox>
+        <hbox>
+          <h3 data-l10n-id="huma-panel-ui-current-window-text"></h3>
+          <hbox class="translations-panel-beta" role="image" aria-label="Beta">
+            <image class="translations-panel-beta-icon"></image>
+          </hbox>
+          <toolbarbutton id="PanelUI-huma-workspaces-new"  oncommand="HumaWorkspaces.openSaveDialog();" class="subviewbutton">
+            <image src="chrome://global/skin/icons/plus.svg"></image>
+          </toolbarbutton>
+        </hbox>
+        <html:div id="PanelUI-huma-workspaces-current-info">
+        </html:div>
+      </vbox>
+      <vbox>
+        <h3 data-l10n-id="huma-panel-ui-workspaces-text"></h3>
+        <html:div id="PanelUI-huma-workspaces-list">
+        </html:div>
+      </vbox>
+    </panelview>
+    <panelview id="PanelUI-huma-workspaces-create" class="PanelUI-subView" role="document" mainview-with-header="true" has-custom-header="true">
+      <vbox>
+        <h1 data-l10n-id="huma-panel-ui-workspaces-create-text"></h1>
+        <html:input autofocus="true" id="PanelUI-huma-workspaces-create-input" type="text" placeholder="Enter workspace name" oninput="HumaWorkspaces.onWorkspaceCreationNameChange(this);" />
+        <hbox id="PanelUI-huma-workspaces-create-icons-container">
+        </hbox>
+      </vbox>
+      <html:moz-button-group class="panel-footer" id="PanelUI-huma-workspaces-create-footer">
+        <button disabled="true" default="true" slot="primary" id="PanelUI-huma-workspaces-create-save" oncommand="HumaWorkspaces.saveWorkspaceFromCreate();" class="footer-button" data-l10n-id="huma-panel-ui-workspaces-create-save">
+        </button>
+        <button id="PanelUI-huma-workspaces-create-cancel" oncommand="HumaWorkspaces.closeWorkspacesSubView();" class="footer-button" data-l10n-id="huma-panel-ui-workspaces-create-cancel">
+        </button>
+      </html:moz-button-group>
+    </panelview>
+    <panelview id="PanelUI-huma-workspaces-edit" class="PanelUI-subView" role="document" mainview-with-header="true" has-custom-header="true">
+      <vbox>
+        <h1 data-l10n-id="huma-panel-ui-workspaces-edit-text"></h1>
+        <html:input autofocus="true" id="PanelUI-huma-workspaces-edit-input" type="text" placeholder="Enter workspace name" oninput="HumaWorkspaces.onWorkspaceEditChange();" />
+        <hbox id="PanelUI-huma-workspaces-edit-icons-container">
+        </hbox>
+      </vbox>
+      <html:moz-button-group class="panel-footer" id="PanelUI-huma-workspaces-edit-footer">
+        <button disabled="true" default="true" slot="primary" id="PanelUI-huma-workspaces-edit-save" oncommand="HumaWorkspaces.saveWorkspaceFromEdit();" class="footer-button" data-l10n-id="huma-panel-ui-workspaces-edit-save">
+        </button>
+        <button id="PanelUI-huma-workspaces-edit-cancel" oncommand="HumaWorkspaces.closeWorkspacesSubView();" class="footer-button" data-l10n-id="huma-panel-ui-workspaces-edit-cancel">
+        </button>
+      </html:moz-button-group>
+    </panelview>
+  </panelmultiview>
+</panel>
+
+<menupopup id="humaWorkspaceActionsMenu"
+            onpopupshowing="HumaWorkspaces.updateContextMenu(this);"
+            onpopuphidden="HumaWorkspaces.onContextMenuClose();">
+  <menuitem id="context_humaOpenWorkspace" oncommand="HumaWorkspaces.openWorkspace();" data-l10n-id="huma-workspaces-panel-context-open"/>
+  <menuseparator/>
+  <menuitem id="context_humaSetAsDefaultWorkspace" oncommand="HumaWorkspaces.setDefaultWorkspace();" data-l10n-id="huma-workspaces-panel-context-set-default"/>
+  <menuitem id="context_humaEditWorkspace" oncommand="HumaWorkspaces.contextEdit(event);" data-l10n-id="huma-workspaces-panel-context-edit"/>
+  <menuitem id="context_humaDeleteWorkspace" oncommand="HumaWorkspaces.contextDelete(event);" data-l10n-id="huma-workspaces-panel-context-delete"/>
+</menupopup>

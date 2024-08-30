@@ -91,7 +91,7 @@ pref('huma.view.sidebar-expanded.on-hover', false);
 pref('huma.view.compact', false);
 pref('huma.view.sidebar-expanded', false);
 pref('huma.tabs.vertical', true);
-
+pref('huma.workspaces', true);
 
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 pref("general.smoothScroll.msdPhysics.enabled", true);
@@ -100,3 +100,4 @@ pref("extensions.pocket.enabled", false);
 pref("browser.tabs.closeWindowWithLastTab", false);
 pref("layout.css.backdrop-filter.enabled", true);
 pref("browser.urlbar.trimHttps", true);
+
