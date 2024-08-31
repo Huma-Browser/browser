@@ -88,9 +88,6 @@ pref('huma.preference.humabar.mode', "ince");
 
 pref('huma.tabs.vertical.right-side', false);
 pref('huma.view.sidebar-expanded.on-hover', false);
-pref('huma.view.compact', false);
-pref('huma.view.sidebar-expanded', false);
-pref('huma.tabs.vertical', true);
 pref('huma.workspaces', true);
 
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
