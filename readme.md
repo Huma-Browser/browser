@@ -1,5 +1,5 @@
 # Hüma Tarayıcısı
-
+ - [Available in English](https://github.com/V6lhost/browser/blob/master/readme-en.md)
 ## TO-DO
 
 - [x] Tarayıcı
@@ -55,7 +55,7 @@
         - [x] Tema ile uyumlu renk alır (0b1)
     - [ ] PWA destekler
     - [x] Dikey sekmeleri destekler (0b1)
-    - [ ] Çalışma Alanları (workspaces)
+    - [x] Çalışma Alanları (workspaces)
     - [ ] UserChromeCSS ve UserContentCSS Loader
     - [x] Eklentiler
       - [x] Hüma gezgini (0a11)
