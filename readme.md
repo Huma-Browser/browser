@@ -1,5 +1,5 @@
 # Hüma Tarayıcısı
- - [Available in English](https://github.com/V6lhost/browser/blob/master/readme-en.md)
+ - [Available in English](https://github.com/Huma-Browser/browser/blob/master/readme-en.md)
 ## TO-DO
 
 - [x] Tarayıcı
