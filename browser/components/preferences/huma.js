@@ -26,6 +26,15 @@ if (!AddonManager) {
         const isChecked = checkbox.checked;
         try {
           Services.prefs.setBoolPref(prefName, isChecked);
+          if (prefName === "huma.compact.mode") {
+           
+            /*
+               Services.prefs.setBoolPref("sidebar.verticalTabs", false);
+               Services.prefs.setBoolPref("sidebar.revamp", false);
+
+            */
+            
+        }
         } catch (error) {
           console.error(`Tercih güncellenirken hata oluştu (${prefName}):`, error);
         }
@@ -38,17 +47,25 @@ if (!AddonManager) {
         try {
           const prefValue = Services.prefs.getBoolPref(prefName);
           checkbox.checked = prefValue;
+          if (prefName === "huma.compact.mode") {
+           
+            
+               Services.prefs.setBoolPref("sidebar.verticalTabs", false);
+               Services.prefs.setBoolPref("sidebar.revamp", false);
+             
+        }
         } catch (error) {
           console.error(`Tercih okunurken hata oluştu (${prefName}):`, error);
         }
       }
+  
     },
   
     checkboxInitialize() {
       const prefs = [
         { name: "sidebar.verticalTabs", id: "verticalTabCheckBox" },
         { name: "huma.compact.mode", id: "comapactModeCheckBox" },
-        { name: "sidebar.revamp", id: "sidebarModeCheckBox" },
+        { name: "sidebar.revamp", id: "sidebarCheckBox" },
         { name: "userChrome.compatibility.os", id: "compatibilityOsCheckBox" },
         { name: "userChrome.compatibility.theme", id: "compatibilityThemeCheckBox" },
         { name: "userChrome.decoration.animate", id: "decorationAnimateCheckBox" },

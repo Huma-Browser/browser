@@ -4,6 +4,46 @@ HümaBar Styles...
 
 
 /* Koyu tema */
+@media  (-moz-bool-pref: "huma.compact.mode")  {
+  #humabar-box {
+   display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #humabar-box {
+    background-color: rgba(40, 44, 52);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .humabar-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+  }
+
+  .humabar-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .humabar-button-icon {
+    fill: currentColor;
+    opacity: 0.8;
+  }
+
+  #humabar-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  #humabar-box>vbox::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+
+
+
+}
 @media (prefers-color-scheme: dark) {
   #humabar-box {
     background-color: rgba(40, 44, 52);
