@@ -1,4 +1,5 @@
 # Hüma WEB Browser
+- [Available in Turkish](https://github.com/Huma-Browser/browser/blob/master/readme.md)
 
 ## TO-DO
 
