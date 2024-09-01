@@ -66,17 +66,6 @@ category-sync3 =
 
 
 
-pane-huma-title = Look N Feel
-
-category-humabar =
-    .tooltiptext = { pane-humabar-title }
-
-pane-humabar-title = Edit Sidebar
-
-category-more-from-huma =
-    .tooltiptext = { pane-huma-title }
-
-
 settings-pane-labs-title = { -firefoxlabs-brand-name }
 settings-category-labs =
     .tooltiptext = { -firefoxlabs-brand-name }

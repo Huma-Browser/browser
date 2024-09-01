@@ -9,7 +9,7 @@ huma-width-mode = Width mode
 huma-vertical-tabs = Vertical tabs
 huma-vertical-tabs-title = 
     .label = { huma-vertical-tabs }
-huma-compact-mode = Compact Mode
+huma-compact-mode = Compact Mode  (experimental)
 
 huma-compact-mode-title =
     .label =  { huma-compact-mode }
@@ -17,6 +17,15 @@ huma-sidebar = Enabele Sidebar
 huma-sidebar-title =
     .label =  { huma-sidebar }
 
+pane-huma-title = Look N Feel
+
+category-humabar =
+    .tooltiptext = { pane-humabar-title }
+
+pane-humabar-title = Edit Sidebar
+
+category-more-from-huma =
+    .tooltiptext = { pane-huma-title }
 
 userChrome-theme-proton_color = Theme Proton Color
 userChrome-theme-proton_color-title =
@@ -196,7 +205,7 @@ userChrome-theme-proton_chrome-title =
 userChrome-icon-context_menu = Icon Context Menu
 userChrome-icon-context_menu-title =
     .label = { userChrome-icon-context_menu }
-    
+
 userChrome-theme-system_default = System Default Theme
 userChrome-theme-system_default-title =
     .label = { userChrome-theme-system_default }
