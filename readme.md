@@ -1,5 +1,9 @@
 # Hüma Tarayıcısı
  - [Available in English](https://github.com/Huma-Browser/browser/blob/master/readme-en.md)
+We Love Japanese <3
+ ![Huma Browser](image.png)
+
+ 
 ## TO-DO
 
 - [x] Tarayıcı
@@ -106,82 +110,17 @@ Hüma Tarayıcı, özgür ve açık kaynak kodlu bir web tarayıcısıdır. Gizl
 
 Hüma Tarayıcı, kullanıcı gizliliğini ve özgürlüğünü ön planda tutan, açık kaynak kodlu bir web tarayıcısıdır. İnternetin giderek daha fazla gözetim ve takip aracı haline geldiği günümüzde, Hüma Tarayıcı, kullanıcıların verilerini toplamaz ve internette gezinirken gizlilik sağlamayı hedefler. Bu tarayıcı, modern web standartlarına uygun olarak geliştirilmiş olup, kullanıcıların ihtiyaçlarına göre özelleştirebilecekleri esnek bir yapıya sahiptir. Dikey sekme düzeni, kullanıcıların daha kolay ve etkili bir şekilde sekmeleri yönetmelerine olanak tanırken, statik sayfa desteği, internet bağlantısı olmadan da bazı web sayfalarına erişim imkanı sunar. Hüma Tarayıcısının açık kaynak olması, geliştiricilerin ve meraklı kullanıcıların projeye katkıda bulunmalarına ve kodu incelemelerine olanak tanır. Kullanıcı deneyimini iyileştirmek için sürekli olarak güncellenen ve geliştirilen Hüma Tarayıcı, büyük teknoloji şirketlerinden bağımsız olarak, tek bir geliştirici ile büyümeye devam etmektedir. Kullanıcı gizliliği ve güvenliği konusundaki kararlılığı ile Hüma Tarayıcı, internet kullanıcılarına daha güvenli ve özgür bir gezinti deneyimi sunmayı amaçlar.
 
-## Temel özellikler
+  
 
-Hüma, yerli ve açık kaynaklı bir web tarayıcısıdır. Firefox tabanlı olarak geliştirilen bu tarayıcı, gizlilik odaklı tasarımı ve özelleştirilebilir özellikleriyle öne çıkar. Hüma, kendi temasının yanı sıra sayfalar arasında gezinmeyi kolaylaştıran Hüma Gezgini, dikey sekme desteği, internetsiz çalışan Hüma Tarih ve Mitoloji sayfaları, dosya paylaşımı için 10MB sınırı olan Hüma Bulut ve Türkçe söz dizimine sahip betik yazma aracı Hüma Betik gibi özellikler sunar. 
-
-## Hüma sekmeleri
-
-<img src="https://firebasestorage.googleapis.com/v0/b/vastsea-blog.appspot.com/o/mUj553KYSMNLQxdU68FR2cl0AFG3%2Fhumasekmeleri.png?alt=media&token=f56918a9-1cb2-4a13-89cb-f71f5479d050" />
-
-Hüma Sekmeleri: Hüma Tarayıcısı için Yenilikçi Dikey Sekme Eklentisi
-
-Hüma Sekmeleri, Hüma tarayıcısında kullanıcı deneyimini büyük ölçüde iyileştiren bir dikey sekme eklentisidir. Geliştirilmiş kullanılabilirlik ve özelleştirme seçenekleri sunarak, web gezintisini daha verimli ve düzenli hale getirir.
-
-
-Hüma Sekmeleri, Tree Style Tab eklentisinin ilhamını alarak geliştirilmiş ve Hüma tarayıcısıyla uyumlu hale getirilmiştir. Kullanıcı dostu arayüzü ve zengin özellikleriyle, web tarayıcınızı daha verimli bir hale getirmek için ideal bir seçimdir.
-
-Şimdi Hüma Sekmeleri'ni keşfedin ve web gezintisinde yeni bir düzene adım atın!
-
-### **Özellikler:**
-
-- **Dikey Sekmeler:** Web sitelerini dikey sekme düzeninde göstererek daha fazla sekme kullanımını optimize eder.
-- **Özelleştirilebilirlik:** Sekme genişlikleri, renk temaları ve düzen seçenekleriyle kullanıcıya tam kontrol sağlar.
-- **Sekme Grupları:** Sekmeleri gruplayarak benzer içeriklere sahip web sitelerini kolayca yönetebilme imkanı sunar.
-- **Sürükle ve Bırak Desteği:** Sekmeleri sürükleyerek yeniden düzenleme ve gruplama yapabilme kolaylığı sağlar.
-- **Performans Odaklı: Hafif** yapısıyla tarayıcı performansını olumsuz etkilemeden kullanıcıya yüksek performans sunar.
-
- 
-## Hüma Gezgini
-
-
-<img src="https://firebasestorage.googleapis.com/v0/b/vastsea-blog.appspot.com/o/mUj553KYSMNLQxdU68FR2cl0AFG3%2Fhumagezgini.png?alt=media&token=f42dec79-8eb2-4ba6-aa7c-352387fc075a" />
-
-**Hüma Gezgini: Hüma Tarayıcısında Yer İmleri ve Gezinti için Güçlü Eklenti**
-
-Hüma Gezgini, Hüma tarayıcısında varsayılan olarak bulunan kullanışlı bir eklentidir. Bu eklenti, yer imleriniz arasında kolayca gezinmenizi sağlarken Hüma projenizdeki bağlantıları keşfetmenize yardımcı olur. Aynı zamanda tarayıcınızda sayfalar arasında rahatça geçiş yapmanızı sağlayarak size bir tarayıcı rehberi sunar.
-
-### **Özellikler:**
-- **Yer İmleri Yönetimi:** Kolay erişim için yer imlerinizi düzenlemenizi ve yönetmenizi sağlar.
-- **Bağlantı Keşfi:** Hüma projesindeki bağlantıları keşfetme imkanı sunar, içeriği daha kolay bulmanızı sağlar.
-- **Özelleştirme Seçenekleri:** Eklentinin renk temasını değiştirerek kendi Hüma Gezgini temanızı oluşturabilirsiniz.
-- **Kenar Çubuğu Entegrasyonu:** Tarayıcınızın kenar çubuğunda kolay erişim için yer alır.
-- **To-Do List Özelliği:** Görev listesi oluşturup yönetmenize olanak tanır, tarayıcınızda daha düzenli çalışmanızı sağlar.
-
-Hüma Gezgini, kullanıcı dostu arayüzü ve özelleştirme seçenekleriyle tarayıcınızın verimliliğini artırmak için tasarlanmıştır. Tarayıcınızı daha da kişiselleştirmek ve günlük web taramalarınızı yönetmek için ideal bir yardımcıdır.
-
-
-## Hüma Kenar Çubuğu
-
-
-
-
-## Hüma Tarih ve Hüma Mitoloji: İnternetsiz Ansiklopedi
-
-<img src="https://forum.pardus.org.tr/uploads/default/original/2X/3/3c96516d93ff054ea6f9534aeb8f290789fd3c06.png" />
-Hüma Tarih ve Hüma Mitoloji sayfaları, Türk mitolojisi ve tarihini tanıtan kapsamlı bir internetsiz ansiklopedidir. Tarayıcınızda depolanan bu sayfalar, zengin içerikleri ile bilgiye kolay erişim sağlar ve zamanla diğer milletlere ve kategorilere ait içeriklerle genişleyecektir.
-
-### **Özellikler:**
-- **Türk Mitolojisi ve Tarihi:** Türk mitolojisi ve tarihi hakkında derinlemesine bilgiler sunar.
-- **İnternetsiz Erişim:** İnternet bağlantısı gerektirmeden, tarayıcı içerisinde yer alan bir bilgi kaynağıdır.
-- **Genişleyen İçerik:** Zamanla diğer milletlerin tarihi ve mitolojisi ile ilgili içeriklerin de eklenmesi planlanmaktadır.
-
-
-Sürümler:
-
-    Hüma-Qt: QtWebEngine ile yazılmış deneysel sürümlere verilen ad(İlk Hüma deneyselidir).
-    Hüma-Electron: Electron ile yazılmış deneysel sürüm.
-    Hüma (Firefox Çatalı): Asıl hedef olan ve şu anda üzerinde geliştirilmeye devam edilen Firefox çatalı sürüm.
-
-Geliştirme:
+## Geliştirme:
 
 Projeyi klonlayın:
 
-    git clone https://github.com/VastSea0/Huma.git
+    git clone https://github.com/Huma-Browser/browser.git
 
 Dizine gidin:
 
-    cd Huma
+    cd browser
 
 Ön yükleme yapın:
 
@@ -204,7 +143,7 @@ Daha Fazla Bilgi:
     Proje Deposu: [https://github.com/VastSea0/Huma](https://github.com/VastSea0/Huma)
     Mozilla Geliştirici Belgeleri: [https://developer.mozilla.org/en-US/](https://firefox-source-docs.mozilla.org)
     
-Projeye Katkı Sağlamak:
+## Projeye Katkı Sağlamak:
 
 Hüma Tarayıcısı'nın gelişmesine katkıda bulunmak istiyorsanız, lütfen projenin GitHub deposuna göz atın ve açık sorunlara bakın. Her türlü katkı açıktır.
 
