@@ -287,13 +287,17 @@ var CustomizableUIInternal = {
       Services.policies.isAllowed("removeHomeButtonByDefault")
         ? null
         : "home-button",
-      lazy.sidebarRevampEnabled ? "sidebar-button" : null,
+      "sidebar-button",
+      "spring",
       "spring",
       "urlbar-container",
       "spring",
-      "save-to-pocket-button",
+      "spring",
+      "search-container",
+      "spring",
+      "spring",
       "downloads-button",
-      AppConstants.MOZ_DEV_EDITION ? "developer-button" : null,
+      "developer-button",
       "fxa-toolbar-menu-button",
       lazy.resetPBMToolbarButtonEnabled ? "reset-pbm-toolbar-button" : null,
     ].filter(name => name);

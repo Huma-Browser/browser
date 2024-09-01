@@ -84,6 +84,9 @@ set-pref-description = Input the file location of the CSS file editor you want t
 rebuild-complete = Rebuild has been completed.
 please-enter-filename = Please enter a file name.
 
-create-custom-css = Create Custom CSS
+create-custom-css =
+    .label = Create Custom CSS
+    .accesskey = h
+
 
 please-enter-filename = Please enter file name

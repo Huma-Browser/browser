@@ -318,20 +318,14 @@ HümaBar Styles...
  
 #huma-workspaces-button {
 	margin-inline-start: 4px;
- 
 	max-width: 225px;
-  width: var(--collapsed-tab-width);
-  border: 1px solid var(--huma-colors-border);
   border-radius: 50px;
-  height: calc(var(--huma-sidebar-action-button-width) - 10px) !important;
   margin-bottom: 5px !important;
-  
-    
   align-items: center;
   display: flex;
 	display: flex;
 	min-height: 25px;
- 
+	min-width: 100px;
 }
 #PanelUI-huma-profiles {
   --menu-panel-width: 19em;

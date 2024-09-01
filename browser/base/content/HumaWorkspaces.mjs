@@ -1,4 +1,4 @@
-
+// https://github.com/Huma-Browser/browser 
 var HumaWorkspaces = {
     async init() {
       let docElement = document.documentElement;
@@ -233,7 +233,7 @@ var HumaWorkspaces = {
         let childs = window.MozXULElement.parseXULToFragment(`
           <div class="huma-workspace-icon">
           </div>
-          <div class="huma-workspace-name">
+           <div class="huma-workspace-name">
           </div>
           <toolbarbutton closemenu="none" class="toolbarbutton-1 huma-workspace-actions">
             <image class="toolbarbutton-icon" id="huma-workspace-actions-menu-icon"></image>
@@ -311,7 +311,7 @@ var HumaWorkspaces = {
           button.removeAttribute("hidden");
           return;
         }
-        let browserTabs = document.getElementById("newtab-button-container");
+        let browserTabs = document.getElementById("TabsToolbar-customization-target");
         let button = document.createElement("toolbarbutton");
         button.id = "huma-workspaces-button";
         button.className = "toolbarbutton-1 chromeclass-toolbar-additional";
@@ -338,7 +338,7 @@ var HumaWorkspaces = {
           <div class="huma-workspace-sidebar-name">
           </div>
         `;
-  
+        // https://helo.com
         // use text content instead of innerHTML to avoid XSS
         button.querySelector(".huma-workspace-sidebar-name").textContent = activeWorkspace.name;
         button.querySelector(".huma-workspace-sidebar-icon").textContent = this.getWorkspaceIcon(activeWorkspace);

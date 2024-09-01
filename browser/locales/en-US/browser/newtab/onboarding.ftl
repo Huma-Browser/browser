@@ -319,6 +319,13 @@ onboarding-mobile-download-security-and-privacy-subtitle = When you’re synced 
 onboarding-gratitude-security-and-privacy-title = { -brand-short-name } has your back
 onboarding-gratitude-security-and-privacy-subtitle = Thank you for using { -brand-short-name }, backed by the Mozilla Foundation. With your support, we’re working to make the internet safer and more accessible for everyone.
 
+# Restart screen
+onboarding-restart-required-title = We’ve made some specific adjustments for your browser
+onboarding-restart-required-subtitle = As a result, we need to restart your browser to ensure a healthier experience.
+
+onboarding-restart-required-button-yes-label = Yes, I have restarted my browser
+onboarding-restart-required-button-no-label = No, restart my browser now
+
 ## New user time and familiarity survey strings
 
 onboarding-new-user-time-based-survey-title = How long have you been using { -brand-short-name }?

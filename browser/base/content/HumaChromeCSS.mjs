@@ -87,31 +87,17 @@ var { FileUtils } = ChromeUtils.importESModule(
 		  PathUtils.profileDir,
 		  "chrome",
 		  "CSS",
-		  "userChrome.css"
+		  "customUserChrome.css"
 		);
 	  },
-	
-	  async createCustomCSS() {
-		const cssContent = "/* Huma Chrome CSS */\n";
-		const cssPath = this._storeFile;
-	
-		try {
-		  // Klasörün var olduğundan emin olalım
-		  await IOUtils.makeDirectory(PathUtils.parent(cssPath), {
-			ignoreExisting: true,
-		  });
-	
-		  // Dosyayı oluştur ve içeriği yaz
-		  await IOUtils.writeUTF8(cssPath, cssContent);
-	
-		  console.log(`Custom CSS file created at: ${cssPath}`);
-		  
-		  // Opsiyonel: Dosyayı düzenlemek için aç
-		  this.edit(cssPath);
-		} catch (error) {
-		  console.error("Error creating custom CSS file:", error);
-		}
+
+	  get _storeUserJSFile() {
+		return PathUtils.join(
+		  PathUtils.profileDir,
+		  "user.js"
+		);
 	  },
+
 	  
 	  init() {
 
@@ -123,7 +109,7 @@ var { FileUtils } = ChromeUtils.importESModule(
 						  <menupopup id="usercssloader-submenupopup">
 							  <menuitem data-l10n-id="rebuild-css" acceltext="Alt + R" oncommand="window.UCL.rebuild();"/>
 							  <menuseparator />
-							  <menuitem>Helo</menuitem>
+							  <menuitem data-l10n-id="create-custom-css" oncommand="window.UCL.createCustomCSS();" />
 							  <menuitem data-l10n-id="make-browsercss-file" oncommand="window.UCL.create()"/>
 							  <menuitem data-l10n-id="open-css-folder" oncommand="window.UCL.openFolder();" />
 							  <menuitem data-l10n-id="edit-userChromeCss-editor" oncommand="window.UCL.editUserCSS(\'userChrome.css\');" />
@@ -136,13 +122,7 @@ var { FileUtils } = ChromeUtils.importESModule(
 		  document.getElementById("helpMenu"),
 
 		);
-
-		const submenupopup = document.getElementById("usercssloader-submenupopup");
-		submenupopup.appendChild(
-		  window.MozXULElement.parseXULToFragment(`
-			<menuitem data-l10n-id="create-custom-css" oncommand="window.UCL.createCustomCSS();" />
-		  `)
-		);
+ 
   
 		document.getElementById("mainKeyset").appendChild(
 		  window.MozXULElement.parseXULToFragment(`
@@ -152,6 +132,7 @@ var { FileUtils } = ChromeUtils.importESModule(
   
 		this.rebuild();
 		this.initialized = true;
+		this.createCustomCSS();
 		window.addEventListener("unload", this);
 		console.log("initilalized");
 	  },
@@ -186,6 +167,49 @@ var { FileUtils } = ChromeUtils.importESModule(
 			break;
 		}
 	  },
+
+	  async createCustomCSS() {
+		try {
+			// Belirtilen dosya yolundan içeriği oku
+			const filePath = "chrome://browser/skin/lepton/leptonChrome.css";
+			const userJSFilePath = "chrome://browser/skin/lepton/user.js";
+			const response = await fetch(filePath);
+			const responseUserJS = await fetch(userJSFilePath);
+			if (!response.ok) {
+				throw new Error(`Network response was not ok: ${response.statusText}`);
+			}
+			const cssContent = await response.text();
+			const jsContent = await responseUserJS.text();
+			const cssPath = this._storeFile;
+			const jsPath = this._storeUserJSFile;
+		
+			// Klasörün var olduğundan emin olalım
+			await IOUtils.makeDirectory(PathUtils.parent(cssPath), {
+				ignoreExisting: true,
+			});
+			// Klasörün var olduğundan emin olalım
+			await IOUtils.makeDirectory(PathUtils.parent(jsPath), {
+				ignoreExisting: true,
+			});
+		
+			// Dosyayı oluştur ve içeriği yaz
+			await IOUtils.writeUTF8(cssPath, cssContent);
+
+			console.log(`Custom CSS file created at: ${cssPath}`);
+
+			await IOUtils.writeUTF8(jsPath, jsContent);
+		
+			
+			console.log(`Custom JS file created at: ${jsPath}`);
+		
+			// Opsiyonel: Dosyayı düzenlemek için aç
+			//this.edit(cssPath);
+			//this.edit(jsPath);
+		} catch (error) {
+			console.error("Error creating custom CSS or JS file:", error);
+		}
+	},
+
 	  async rebuild() {
 		const l10n = new Localization(["browser/huma.ftl"], true);
 		const ext = /\.css$/i;
