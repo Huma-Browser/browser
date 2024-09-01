@@ -5,214 +5,31 @@
 <!-- More From Mozilla panel -->
 
 <script src="chrome://browser/content/preferences/huma.js"/>
- 
- <html:style>
-    #preference-body{
-        transition: background-color 0.3s;
-    }
-    .navigation {
-        transition: background-color 0.3s;
-    }
-    #mainPrefPane {
-        transition: background-color 0.3s;
-    }
-    .palette-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-}
 
-.palette {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.palette:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-}
-
-.palette-half {
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 12px;
-  text-align: center;
-  padding: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.palette-half:hover {
-  background-color: rgba(255,255,255,0.1);
-}
-     
-  
- 
-    
-      </html:style>
-      <html:style>
-  .humabar-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .humabar-row {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #444;
-    padding: 8px 0;
-  }
-  .humabar-cell {
-    flex: 1;
-    padding: 0 8px;
-  }
-  .humabar-buttons {
-    text-align: left;
-    padding: 8px 12px;
-    text-decoration: none;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: #2a2a2e;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-  .humabar-buttons:hover {
-    background-color: #38383d;
-  }
-  .icon-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    margin: 0 2px;
-    color: #fff;
-  }
-  .icon-button:hover {
-    background-color: #38383d;
-  }
-  .create-button {
-    margin-top: 16px;
-    padding: 8px 16px;
-    background-color: #0060df;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  .create-button:hover {
-    background-color: #003eaa;
-  }
-  .theme-card {
-  
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px;
-  transition: all 0.3s ease;
-}
-
-.theme-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.theme-card-image {
-  width: 100%;
-  border-radius: 4px;
-  margin-bottom: 12px;
-}
-
-.theme-card p {
- 
-  font-size: 14px;
-  margin: 0;
-  line-height: 1.4;
-}
-.advanced-view-modes {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
- 
-  border-radius: 8px;
-  
-}
-
-.advanced-view-modes h3 {
-  margin-top: 0;
-  margin-bottom: 16px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.humabar-table {
-  width: 100%;
-}
-
-.humabar-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid #3f3f44;
-}
-
-.humabar-cell {
-  display: flex;
-  align-items: center;
-}
-
-.icon-button {
-  
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.icon-button:hover {
-  background-color: #003eaa;
-}
-
- 
-</html:style>
 <html:template id="template-paneHumaLookNFeel">
   <div id="humaCategory-header" hidden="true" data-category="paneHumaLookNFeel"></div>
 
   <groupbox id="HumaLookNFeelPageGroup" data-category="paneHumaLookNFeel" hidden="true">
     <hbox class="advanced-view-modes" style="display: flex; flex-direction: column; padding: 16px;">
-        <html:h1>
-          Look And Feel
+        <html:h1 data-l10n-id="huma-look-and-feel-title">
+          
         </html:h1>
         <html:div class="settings-page-palette">
         <html:center>
-        <html:h2>Personalize Settings Page</html:h2>
+        <html:h2 data-l10n-id="huma-personalize-settings-page"  ></html:h2>
         </html:center>
         <html:div class="palette-list" id="paletteList">
         
         </html:div>
         </html:div>
        
-        <html:p>
-          Choose and apply any of the palettes or apply the palette of the theme you installed in your browser
+        <html:p data-l10n-id="huma-apply-theme">
+          
         </html:p>
     </hbox>
 
     <hbox style="display: flex; flex-direction: column; padding: 16px;">
-      <html:h3>Advanced View Modes</html:h3>
+      <html:h3 data-l10n-id="huma-advanced-view-mode-title">Advanced View Modes</html:h3>
       <html:div class="humabar-table">
 
       <html:div class="humabar-row" >
@@ -221,11 +38,11 @@
             </html:div>
 
         </html:div> 
-  
+      
         <html:div class="humabar-row" >
           <html:div   class="humabar-cell">
-            <button class="icon-button" >
-            Vertical tabs
+            <button class="icon-button" data-l10n-id="huma-vertical-tabs" >
+           
             </button>
            
 
@@ -235,14 +52,14 @@
             <html:div class="humabar-cell">
            
          
-            <checkbox id="verticalTabCheckBox" data-l10n-id="vertical-tabs-title"/>
+            <checkbox id="verticalTabCheckBox" data-l10n-id="huma-vertical-tabs-title"/>
           </html:div>
           
         </html:div> 
         <html:div class="humabar-row" >
           <html:div   class="humabar-cell">
-            <button class="icon-button" >
-           Compact Mode
+            <button class="icon-button" data-l10n-id="huma-sidebar" >
+           
             </button>
            
 
@@ -252,16 +69,16 @@
             <html:div class="humabar-cell">
            
          
-            <checkbox id="comapactModeCheckBox" data-l10n-id="comapact-mode-title"/>
+            <checkbox id="sidbarCheckBox" data-l10n-id="huma-sidebar-title"/>
           </html:div>
           
         </html:div> 
-        <!--
-          <html:div class="humabar-row" >
+        <html:div class="humabar-row" >
           <html:div   class="humabar-cell">
-            <button class="icon-button" >
-           userChrome
+            <button class="icon-button" data-l10n-id="huma-compact-mode" >
+          
             </button>
+           
 
             </html:div>
         
@@ -269,15 +86,549 @@
             <html:div class="humabar-cell">
            
          
-            <button id="loadFilesButton">Dosyaları Yükle</button>
-
+            <checkbox id="comapactModeCheckBox" data-l10n-id="huma-compact-mode-title"/>
           </html:div>
+      
+        </html:div>
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-compatibility-os"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="compatibilityOsCheckBox" data-l10n-id="userChrome-compatibility-os-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-compatibility-theme"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="compatibilityThemeCheckBox" data-l10n-id="userChrome-compatibility-theme-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-decoration-animate"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="decorationAnimateCheckBox" data-l10n-id="userChrome-decoration-animate-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-decoration-cursor"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="decorationCursorCheckBox" data-l10n-id="userChrome-decoration-cursor-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-decoration-download_panel"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="decorationDownloadPanelCheckBox" data-l10n-id="userChrome-decoration-download_panel-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-decoration-field_border"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="decorationFieldBorderCheckBox" data-l10n-id="userChrome-decoration-field_border-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-fullscreen-overlap"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="fullscreenOverlapCheckBox" data-l10n-id="userChrome-fullscreen-overlap-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-fullscreen-show_bookmarkbar"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="fullscreenShowBookmarkbarCheckBox" data-l10n-id="userChrome-fullscreen-show_bookmarkbar-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-icon-1-25px_stroke"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="icon1_25pxStrokeCheckBox" data-l10n-id="userChrome-icon-1-25px_stroke-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-icon-context_menu"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="iconContextMenuCheckBox" data-l10n-id="userChrome-icon-context_menu-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-icon-global_menu"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="iconGlobalMenuCheckBox" data-l10n-id="userChrome-icon-global_menu-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-icon-global_menubar"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="iconGlobalMenubarCheckBox" data-l10n-id="userChrome-icon-global_menubar-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-icon-library"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="iconLibraryCheckBox" data-l10n-id="userChrome-icon-library-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-icon-menu"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="iconMenuCheckBox" data-l10n-id="userChrome-icon-menu-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-icon-panel"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="iconPanelCheckBox" data-l10n-id="userChrome-icon-panel-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-icon-panel_full"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="iconPanelFullCheckBox" data-l10n-id="userChrome-icon-panel_full-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-icon-panel_photon"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="iconPanelPhotonCheckBox" data-l10n-id="userChrome-icon-panel_photon-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-padding-bookmark_menu"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="paddingBookmarkMenuCheckBox" data-l10n-id="userChrome-padding-bookmark_menu-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-padding-bookmarkbar"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="paddingBookmarkbarCheckBox" data-l10n-id="userChrome-padding-bookmarkbar-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-padding-global_menubar"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="paddingGlobalMenubarCheckBox" data-l10n-id="userChrome-padding-global_menubar-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-padding-infobar"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="paddingInfobarCheckBox" data-l10n-id="userChrome-padding-infobar-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-padding-menu"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="paddingMenuCheckBox" data-l10n-id="userChrome-padding-menu-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-padding-navbar_width"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="paddingNavbarWidthCheckBox" data-l10n-id="userChrome-padding-navbar_width-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-padding-panel"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="paddingPanelCheckBox" data-l10n-id="userChrome-padding-panel-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-padding-popup_panel"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="paddingPopupPanelCheckBox" data-l10n-id="userChrome-padding-popup_panel-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-padding-tabbar_height"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="paddingTabbarHeightCheckBox" data-l10n-id="userChrome-padding-tabbar_height-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-padding-tabbar_width"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="paddingTabbarWidthCheckBox" data-l10n-id="userChrome-padding-tabbar_width-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-padding-toolbar_button"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="paddingToolbarButtonCheckBox" data-l10n-id="userChrome-padding-toolbar_button-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-padding-urlbar"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="paddingUrlbarCheckBox" data-l10n-id="userChrome-padding-urlbar-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-rounding-square_tab"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="roundingSquareTabCheckBox" data-l10n-id="userChrome-rounding-square_tab-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-bar_separator"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabBarSeparatorCheckBox" data-l10n-id="userChrome-tab-bar_separator-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-bottom_rounded_corner"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabBottomRoundedCornerCheckBox" data-l10n-id="userChrome-tab-bottom_rounded_corner-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-box_shadow"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabBoxShadowCheckBox" data-l10n-id="userChrome-tab-box_shadow-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-close_button_at_hover"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabCloseButtonAtHoverCheckBox" data-l10n-id="userChrome-tab-close_button_at_hover-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-color_like_toolbar"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabColorLikeToolbarCheckBox" data-l10n-id="userChrome-tab-color_like_toolbar-title"/>
+    </html:div>
+  </html:div>
+ 
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-connect_to_window"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabConnectToWindowCheckBox" data-l10n-id="userChrome-tab-connect_to_window-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-container"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabContainerCheckBox" data-l10n-id="userChrome-tab-container-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-crashed"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabCrashedCheckBox" data-l10n-id="userChrome-tab-crashed-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-dynamic_separator"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabDynamicSeparatorCheckBox" data-l10n-id="userChrome-tab-dynamic_separator-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-lepton_like_padding"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabLeptonLikePaddingCheckBox" data-l10n-id="userChrome-tab-lepton_like_padding-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-letters_cleary"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabLettersClearyCheckBox" data-l10n-id="userChrome-tab-letters_cleary-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-multi_selected"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabMultiSelectedCheckBox" data-l10n-id="userChrome-tab-multi_selected-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-newtab_button_like_tab"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabNewtabButtonLikeTabCheckBox" data-l10n-id="userChrome-tab-newtab_button_like_tab-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-newtab_button_proton"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabNewtabButtonProtonCheckBox" data-l10n-id="userChrome-tab-newtab_button_proton-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-newtab_button_smaller"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabNewtabButtonSmallerCheckBox" data-l10n-id="userChrome-tab-newtab_button_smaller-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-photon_like_contextline"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabPhotonLikeContextlineCheckBox" data-l10n-id="userChrome-tab-photon_like_contextline-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-photon_like_padding"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabPhotonLikePaddingCheckBox" data-l10n-id="userChrome-tab-photon_like_padding-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-pip"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabPipCheckBox" data-l10n-id="userChrome-tab-pip-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-sound_hide_label"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabSoundHideLabelCheckBox" data-l10n-id="userChrome-tab-sound_hide_label-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-sound_with_favicons"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabSoundWithFaviconsCheckBox" data-l10n-id="userChrome-tab-sound_with_favicons-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-static_separator"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabStaticSeparatorCheckBox" data-l10n-id="userChrome-tab-static_separator-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-static_separator-selected_accent"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabStaticSeparatorSelectedAccentCheckBox" data-l10n-id="userChrome-tab-static_separator-selected_accent-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-tab-unloaded"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="tabUnloadedCheckBox" data-l10n-id="userChrome-tab-unloaded-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-theme-built_in_contrast"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="themeBuiltInContrastCheckBox" data-l10n-id="userChrome-theme-built_in_contrast-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-theme-fully_color"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="themeFullyColorCheckBox" data-l10n-id="userChrome-theme-fully_color-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-theme-fully_dark"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="themeFullyDarkCheckBox" data-l10n-id="userChrome-theme-fully_dark-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-theme-proton_chrome"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="themeProtonChromeCheckBox" data-l10n-id="userChrome-theme-proton_chrome-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-theme-proton_color"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="themeProtonColorCheckBox" data-l10n-id="userChrome-theme-proton_color-title"/>
+    </html:div>
+  </html:div>
+
+  <html:div class="humabar-row">
+    <html:div class="humabar-cell">
+      <button class="icon-button" data-l10n-id="userChrome-theme-system_default"></button>
+    </html:div>
+    <html:div class="humabar-cell">
+      <checkbox id="themeSystemDefaultCheckBox" data-l10n-id="userChrome-theme-system_default-title"/>
+    </html:div>
+  </html:div>
+
+        </html:div>
+       
           
-        </html:div> 
-          -->
-
-
-      </html:div>
+    
+     
+ 
+   
        
     </hbox>
   </groupbox>

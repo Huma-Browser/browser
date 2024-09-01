@@ -16,101 +16,110 @@ if (!AddonManager) {
       console.log("helo");
     },
   
-      // userChrome.css ve userContent.css dosyalarını yükleme fonksiyonu
-      loadCustomStylesheets() {
-        var sss = Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService);
-        var ios = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
+      
     
-     // userChrome.css dosyasını yükle
-      var chromeURI = ios.newURI("chrome://huma/content/lepton/leptonChrome.css", null, null);
-      if (!sss.sheetRegistered(chromeURI, sss.AGENT_SHEET)) {
-        sss.loadAndRegisterSheet(chromeURI, sss.AGENT_SHEET);
-        console.log("leptonChrome.css yüklendi.");
-      }
+     
   
-      // userContent.css dosyasını yükle
-      var contentURI = ios.newURI("chrome://huma/content/lepton/leptonContent.css", null, null);
-      if (!sss.sheetRegistered(contentURI, sss.AGENT_SHEET)) {
-        sss.loadAndRegisterSheet(contentURI, sss.AGENT_SHEET);
-        console.log("leptonContent.css yüklendi.");
-      }
-  
-      },
-    
-      // user.js dosyasını yükleme ve uygulama fonksiyonu
-      loadUserJS() {
-        
-        /*var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsIFile);
-        file.initWithPath("/path/to/profile/user.js");
-    
-        var fstream = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance(Components.interfaces.nsIFileInputStream);
-        var sstream = Components.classes["@mozilla.org/scriptableinputstream;1"].createInstance(Components.interfaces.nsIScriptableInputStream);
-    
-        fstream.init(file, -1, 0, 0);
-        sstream.init(fstream);
-    
-        var data = sstream.read(sstream.available());
-        sstream.close();
-        fstream.close();
-    
-        // Her satırı okuyarak js dosyasını uygula
-        var lines = data.split("\n");
-        lines.forEach(function (line) {
-          if (line.trim().startsWith("//") || line.trim() === "") {
-            return; // Yorum satırlarını atla
-          }
-    
-          // Örnek: pref("browser.startup.homepage", "https://example.com");
-          eval(line); // user.js'deki ayarları uygulamak için
-        });
-    
-        console.log("user.js yüklendi ve uygulandı.");
-        */
-      },
-    
-      // Tüm dosyaları yükleyen ana fonksiyon
-      loadAllCustomFiles() {
-        this.loadCustomStylesheets();
-        this.loadUserJS();
-      },
-  
-    updatePreferenceFromCheckbox() {
-      const checkbox = document.getElementById('verticalTabCheckBox');
+    updatePreferenceFromCheckbox(prefName, checkboxId) {
+      const checkbox = document.getElementById(checkboxId);
       if (checkbox) {
         const isChecked = checkbox.checked;
         try {
-          Services.prefs.setBoolPref("sidebar.verticalTabs", isChecked);
+          Services.prefs.setBoolPref(prefName, isChecked);
         } catch (error) {
-          console.error("Tercih güncellenirken hata oluştu:", error);
+          console.error(`Tercih güncellenirken hata oluştu (${prefName}):`, error);
         }
       }
     },
   
-    updateCheckboxFromPreference() {
-      const checkbox = document.getElementById('verticalTabCheckBox');
+    updateCheckboxFromPreference(prefName, checkboxId) {
+      const checkbox = document.getElementById(checkboxId);
       if (checkbox) {
         try {
-          const humVerticalTab = Services.prefs.getBoolPref("sidebar.verticalTabs");
-          checkbox.checked = humVerticalTab;
+          const prefValue = Services.prefs.getBoolPref(prefName);
+          checkbox.checked = prefValue;
         } catch (error) {
-          console.error("Tercih okunurken hata oluştu:", error);
+          console.error(`Tercih okunurken hata oluştu (${prefName}):`, error);
         }
       }
     },
   
     checkboxInitialize() {
-      const checkbox = document.getElementById('verticalTabCheckBox');
-      if (checkbox) {
-        // Checkbox'ın durumunu mevcut tercih ile güncelle
-        this.updateCheckboxFromPreference();
+      const prefs = [
+        { name: "sidebar.verticalTabs", id: "verticalTabCheckBox" },
+        { name: "huma.compact.mode", id: "comapactModeCheckBox" },
+        { name: "sidebar.revamp", id: "sidebarModeCheckBox" },
+        { name: "userChrome.compatibility.os", id: "compatibilityOsCheckBox" },
+        { name: "userChrome.compatibility.theme", id: "compatibilityThemeCheckBox" },
+        { name: "userChrome.decoration.animate", id: "decorationAnimateCheckBox" },
+        { name: "userChrome.decoration.cursor", id: "decorationCursorCheckBox" },
+        { name: "userChrome.decoration.download_panel", id: "decorationDownloadPanelCheckBox" },
+        { name: "userChrome.decoration.field_border", id: "decorationFieldBorderCheckBox" },
+        { name: "userChrome.fullscreen.overlap", id: "fullscreenOverlapCheckBox" },
+        { name: "userChrome.fullscreen.show_bookmarkbar", id: "fullscreenShowBookmarkbarCheckBox" },
+        { name: "userChrome.icon.1-25px_stroke", id: "icon1_25pxStrokeCheckBox" },
+        { name: "userChrome.icon.global_menu", id: "iconGlobalMenuCheckBox" },
+        { name: "userChrome.icon.global_menubar", id: "iconGlobalMenubarCheckBox" },
+        { name: "userChrome.icon.library", id: "iconLibraryCheckBox" },
+        { name: "userChrome.icon.menu", id: "iconMenuCheckBox" },
+        { name: "userChrome.icon.panel", id: "iconPanelCheckBox" },
+        { name: "userChrome.icon.panel_full", id: "iconPanelFullCheckBox" },
+        { name: "userChrome.icon.panel_photon", id: "iconPanelPhotonCheckBox" },
+        { name: "userChrome.padding.bookmark_menu", id: "paddingBookmarkMenuCheckBox" },
+        { name: "userChrome.padding.bookmarkbar", id: "paddingBookmarkbarCheckBox" },
+        { name: "userChrome.padding.global_menubar", id: "paddingGlobalMenubarCheckBox" },
+        { name: "userChrome.padding.infobar", id: "paddingInfobarCheckBox" },
+        { name: "userChrome.padding.menu", id: "paddingMenuCheckBox" },
+        { name: "userChrome.padding.navbar_width", id: "paddingNavbarWidthCheckBox" },
+        { name: "userChrome.padding.panel", id: "paddingPanelCheckBox" },
+        { name: "userChrome.padding.popup_panel", id: "paddingPopupPanelCheckBox" },
+        { name: "userChrome.padding.tabbar_height", id: "paddingTabbarHeightCheckBox" },
+        { name: "userChrome.padding.tabbar_width", id: "paddingTabbarWidthCheckBox" },
+        { name: "userChrome.padding.toolbar_button", id: "paddingToolbarButtonCheckBox" },
+        { name: "userChrome.padding.urlbar", id: "paddingUrlbarCheckBox" },
+        { name: "userChrome.rounding.square_tab", id: "roundingSquareTabCheckBox" },
+        { name: "userChrome.tab.bar_separator", id: "tabBarSeparatorCheckBox" },
+        { name: "userChrome.tab.bottom_rounded_corner", id: "tabBottomRoundedCornerCheckBox" },
+        { name: "userChrome.tab.box_shadow", id: "tabBoxShadowCheckBox" },
+        { name: "userChrome.tab.close_button_at_hover", id: "tabCloseButtonAtHoverCheckBox" },
+        { name: "userChrome.tab.color_like_toolbar", id: "tabColorLikeToolbarCheckBox" },
+        { name: "userChrome.tab.connect_to_window", id: "tabConnectToWindowCheckBox" },
+        { name: "userChrome.tab.container", id: "tabContainerCheckBox" },
+        { name: "userChrome.tab.crashed", id: "tabCrashedCheckBox" },
+        { name: "userChrome.tab.dynamic_separator", id: "tabDynamicSeparatorCheckBox" },
+        { name: "userChrome.tab.lepton_like_padding", id: "tabLeptonLikePaddingCheckBox" },
+        { name: "userChrome.tab.letters_cleary", id: "tabLettersClearyCheckBox" },
+        { name: "userChrome.tab.multi_selected", id: "tabMultiSelectedCheckBox" },
+        { name: "userChrome.tab.newtab_button_like_tab", id: "tabNewtabButtonLikeTabCheckBox" },
+        { name: "userChrome.tab.newtab_button_proton", id: "tabNewtabButtonProtonCheckBox" },
+        { name: "userChrome.tab.newtab_button_smaller", id: "tabNewtabButtonSmallerCheckBox" },
+        { name: "userChrome.tab.photon_like_contextline", id: "tabPhotonLikeContextlineCheckBox" },
+        { name: "userChrome.tab.photon_like_padding", id: "tabPhotonLikePaddingCheckBox" },
+        { name: "userChrome.tab.pip", id: "tabPipCheckBox" },
+        { name: "userChrome.tab.sound_hide_label", id: "tabSoundHideLabelCheckBox" },
+        { name: "userChrome.tab.sound_with_favicons", id: "tabSoundWithFaviconsCheckBox" },
+        { name: "userChrome.tab.static_separator", id: "tabStaticSeparatorCheckBox" },
+        { name: "userChrome.tab.static_separator.selected_accent", id: "tabStaticSeparatorSelectedAccentCheckBox" },
+        { name: "userChrome.tab.unloaded", id: "tabUnloadedCheckBox" },
+        { name: "userChrome.theme.built_in_contrast", id: "themeBuiltInContrastCheckBox" },
+        { name: "userChrome.theme.fully_color", id: "themeFullyColorCheckBox" },
+        { name: "userChrome.theme.fully_dark", id: "themeFullyDarkCheckBox" },
+        { name: "userChrome.theme.proton_chrome", id: "themeProtonChromeCheckBox" },
+        { name: "userChrome.theme.proton_color", id: "themeProtonColorCheckBox" }
+      ];
   
-        // Checkbox'ın durumunu değiştirdiğinde tercihi güncelle
-        checkbox.addEventListener('command', () => {
-          this.updatePreferenceFromCheckbox();
-        });
-      } else {
-        console.error("Checkbox elementi bulunamadı");
-      }
+      prefs.forEach(pref => {
+        this.updateCheckboxFromPreference(pref.name, pref.id);
+  
+        const checkbox = document.getElementById(pref.id);
+        if (checkbox) {
+          checkbox.addEventListener('command', () => {
+            this.updatePreferenceFromCheckbox(pref.name, pref.id);
+          });
+        } else {
+          console.error(`Checkbox elementi bulunamadı (${pref.id})`);
+        }
+      });
     },
   
     initializePreference() {
@@ -240,15 +249,7 @@ if (!AddonManager) {
      
     
   };
-  gHumaLookNFeel.addButtonListener = function () {
-    const button = document.getElementById('loadFilesButton');
-    if (button) {
-      button.addEventListener('click', () => {
-        this.loadAllCustomFiles();
-        console.log("Tüm dosyalar yüklendi.");
-      });
-    }
-  };
+ 
   
   // init fonksiyonuna buton dinleyiciyi ekle
   gHumaLookNFeel.init = function () {

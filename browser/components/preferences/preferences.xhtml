@@ -36,6 +36,10 @@
     rel="stylesheet"
     href="chrome://browser/skin/preferences/applications.css"
   />
+  <link
+  rel="stylesheet"
+  href="chrome://browser/skin/preferences/huma.css"
+  />
   <link rel="stylesheet" href="chrome://browser/skin/preferences/search.css" />
   <link
     rel="stylesheet"
@@ -49,6 +53,7 @@
   <link rel="localization" href="browser/preferences/fonts.ftl"/>
   <link rel="localization" href="browser/preferences/moreFromMozilla.ftl"/>
   <link rel="localization" href="browser/preferences/preferences.ftl"/>
+  <link rel="localization" href="browser/preferences/huma.ftl"/>
   <link rel="localization" href="toolkit/branding/brandings.ftl"/>
   <link rel="localization" href="toolkit/featuregates/features.ftl"/>
 
@@ -102,7 +107,7 @@
      
 
       <richlistbox id="categories" data-l10n-id="category-list" data-l10n-attrs="aria-label">
-        <richlistitem class="category">
+        <div class="special-category">
         <hbox class="sticky-container">
           <hbox class="sticky-inner-container" pack="end" align="start">
             <hbox id="policies-container" class="info-box-container smaller-font-size" flex="1" hidden="true">
@@ -120,7 +125,7 @@
               />
           </hbox>
         </hbox>
-      </richlistitem>
+      </div>
 
         <richlistitem id="category-general"
                       class="category"
