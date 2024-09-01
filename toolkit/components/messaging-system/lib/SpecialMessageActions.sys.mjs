@@ -399,6 +399,11 @@ export const SpecialMessageActions = {
           }
         );
         break;
+      case "RESTART_BROWSER":
+        //alert("Restarting the browser, Good Bye!");
+        let flags = Ci.nsIAppStartup.eAttemptQuit | Ci.nsIAppStartup.eRestart;
+        Services.startup.quit(flags)
+        break;
       case "OPEN_ABOUT_PAGE":
         let aboutPageURL = new URL(`about:${action.data.args}`);
         if (action.data.entrypoint) {
