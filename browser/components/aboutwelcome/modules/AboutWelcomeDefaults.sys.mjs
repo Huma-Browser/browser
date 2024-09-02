@@ -731,21 +731,7 @@ const MR_ABOUT_WELCOME_DEFAULT = {
                 },
               },
             },
-            {
-              id: "{74145f27-f039-47ce-a470-a662b129930a}",
-              name: "ClearURLs",
-              icon: "https://addons.mozilla.org/user-media/addon_icons/839/839767-64.png?modified=b06fa7ed",
-              type: "extension",
-              description: "Removes tracking elements from URLs.",
-              source_id: "ADD_EXTENSION_BUTTON",
-              action: {
-                type: "INSTALL_ADDON_FROM_URL",
-                data: {
-                  url: "https://addons.mozilla.org/firefox/downloads/file/4064884/clearurls-1.26.1.xpi",
-                  telemetrySource: "aboutwelcome-addon",
-                },
-              },
-            },
+             
           ],
         },
         title: {
@@ -778,7 +764,42 @@ const MR_ABOUT_WELCOME_DEFAULT = {
         },
       },
     },
- 
+    {
+      id: "AW_SET_DUCKDUCKGO_DEFAULT",
+      content: {
+        position: "split",
+        split_narrow_bkg_position: "-228px",
+        image_alt_text: {
+          string_id: "mr2022-onboarding-gratitude-image-alt",
+        },
+        background:
+          "url('chrome://activity-stream/content/data/content/assets/device-migration.svg') var(--mr-secondary-position) no-repeat var(--mr-screen-background-color)",
+        progress_bar: true,
+        logo: {},
+        title: {
+          string_id: "onboarding-set-duckduckgo-default-title",
+        },
+        subtitle: {
+          string_id: "onboarding-set-duckduckgo-default-subtitle",
+        },
+        primary_button: {
+          label: {
+            string_id: "onboarding-set-duckduckgo-default-button-yes-label",
+          },
+          action: {
+            type: "SET_DUCKDUCKGO_DEFAULT_BROWSER",
+          },
+        },
+        secondary_button: {
+          label: {
+            string_id: "onboarding-set-duckduckgo-default-button-no-label",
+          },
+          action: {
+            navigate: true,
+          },
+        },
+      },
+    },
     {
       id: "AW_RESTART_BROWSER",
       content: {
@@ -815,6 +836,7 @@ const MR_ABOUT_WELCOME_DEFAULT = {
         },
       },
     },
+    
     {
       id: "AW_GRATITUDE",
       content: {

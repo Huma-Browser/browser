@@ -36,7 +36,7 @@ if (!AddonManager) {
             
         }
         } catch (error) {
-          console.error(`Tercih güncellenirken hata oluştu (${prefName}):`, error);
+          //console.error(`Tercih güncellenirken hata oluştu (${prefName}):`, error);
         }
       }
     },
@@ -47,15 +47,15 @@ if (!AddonManager) {
         try {
           const prefValue = Services.prefs.getBoolPref(prefName);
           checkbox.checked = prefValue;
-          if (prefName === "huma.compact.mode") {
+         // if (prefName === "huma.compact.mode") {
            
             
-               Services.prefs.setBoolPref("sidebar.verticalTabs", false);
-               Services.prefs.setBoolPref("sidebar.revamp", false);
+               //Services.prefs.setBoolPref("sidebar.verticalTabs", false);
+               //Services.prefs.setBoolPref("sidebar.revamp", false);
              
-        }
+        //}
         } catch (error) {
-          console.error(`Tercih okunurken hata oluştu (${prefName}):`, error);
+         // console.error(`Tercih okunurken hata oluştu (${prefName}):`, error);
         }
       }
   
@@ -64,7 +64,7 @@ if (!AddonManager) {
     checkboxInitialize() {
       const prefs = [
         { name: "sidebar.verticalTabs", id: "verticalTabCheckBox" },
-        { name: "huma.compact.mode", id: "comapactModeCheckBox" },
+        //{ name: "huma.compact.mode", id: "comapactModeCheckBox" },
         { name: "sidebar.revamp", id: "sidebarCheckBox" },
         { name: "userChrome.compatibility.os", id: "compatibilityOsCheckBox" },
         { name: "userChrome.compatibility.theme", id: "compatibilityThemeCheckBox" },
@@ -134,7 +134,7 @@ if (!AddonManager) {
             this.updatePreferenceFromCheckbox(pref.name, pref.id);
           });
         } else {
-          console.error(`Checkbox elementi bulunamadı (${pref.id})`);
+         // console.error(`Checkbox elementi bulunamadı (${pref.id})`);
         }
       });
     },

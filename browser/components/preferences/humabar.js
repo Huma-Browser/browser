@@ -1,73 +1,57 @@
+var gHumaBar = {
+  async loadPage() {
+    try {
+      await gHumaBrowserManagerSidebar._showPrefsPage();
+      await gHumaBrowserManagerSidebar._createHumabar();
+      
+      /*const search = document.getElementById("search-list");
+      if (search) {
+        search.addEventListener('click', () => this.setDuckDuckGoAsDefault());
+      } else {
+        console.error("search-list element not found");
+      }
+    } catch (error) {
+      console.error("Error in loadPage:", error);
+    }*/
+  },
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this file,
- * You can obtain one at http://mozilla.org/MPL/2.0/. */
- 
- 
+  async setDuckDuckGoAsDefault() {
+    try {
+      const engines = await Services.search.getVisibleEngines();
+      const duckduckgo = engines.find(e => e.name.toLowerCase() === "duckduckgo");
+      
+      if (duckduckgo) {
+        await Services.search.setDefault(duckduckgo, Ci.nsISearchService.CHANGE_REASON_USER);
+        console.log("DuckDuckGo set as default search engine");
+      } else {
+        console.log("DuckDuckGo not found in search engines");
+      }
+    } catch (error) {
+      console.error("Error setting DuckDuckGo as default:", error);
+    }
+  },
 
- var gHumaBar = {
-    // func
-    
-    loadPage() {
-      alert("helo");
-   
-    },
-  
-    _loadPage() {
-     //alert("helo");
-      gHumaBrowserManagerSidebar._showPrefsPage();
-      gHumaBrowserManagerSidebar._createHumabar();
-      const kalin = document.getElementById("kip-kalin");
-      const ince = document.getElementById("kip-ince");
-      const kapali = document.getElementById("kip-kapali");
-    
-      //this._openAddPanelDialog();
-   /*
-      kalin.addEventListener('click', () => {
-        alert(`mod: kalin`);
-        //gHumaUIManager._kip();
-        //this._openAddPanelDialog();
-  
-        gContextMenu.humaContext('maximize-humabar');
-      });
-      ince.addEventListener('click', () => {
-        alert(`mod: ince`);
-        //gHumaUIManager._kip();
-        //this._openAddPanelDialog();
-  
-        gContextMenu.humaContext('minimize-humabar');
-      });
-      kapali.addEventListener('click', () => {
-        alert(`mod: kapali`);
-        //gHumaUIManager._kip();
-        //this._openAddPanelDialog();
-  
-        gContextMenu.humaContext('close-humabar');
-        
-       
-      });*/
-  
-    },
-  
-    async _openAddPanelDialog() {
-      let dialogURL = "chrome://browser/content/places/humabar-settings.xhtml";
-      let features = "centerscreen,chrome,modal,resizable=no";
-      let aParentWindow = Services.wm.getMostRecentWindow("navigator:browser");
-  
+  async _openAddPanelDialog() {
+    try {
+      const dialogURL = "chrome://browser/content/places/humabar-settings.xhtml";
+      const features = "centerscreen,chrome,modal,resizable=no";
+      const aParentWindow = Services.wm.getMostRecentWindow("navigator:browser");
+      
       if (aParentWindow?.gDialogBox) {
         await aParentWindow.gDialogBox.open(dialogURL, {});
-      } else {
+      } else if (aParentWindow) {
         aParentWindow.openDialog(dialogURL, "", features, {});
+      } else {
+        console.error("No parent window found");
       }
-    },
-  
-  
-    init() {
-      this._loadPage(); 
-       
-    },
-  };
-  
-  gHumaBar.init();
-  
-  
+    } catch (error) {
+      console.error("Error opening add panel dialog:", error);
+    }
+  },
+
+  init() {
+    this.loadPage().catch(error => console.error("Error initializing HumaBar:", error));
+  },
+};
+
+gHumaBar.init();

@@ -404,6 +404,16 @@ export const SpecialMessageActions = {
         let flags = Ci.nsIAppStartup.eAttemptQuit | Ci.nsIAppStartup.eRestart;
         Services.startup.quit(flags)
         break;
+      case "SET_DUCKDUCKGO_DEFAULT_BROWSER":
+        const engines = await Services.search.getVisibleEngines();
+        const duckduckgo = engines.find(e => e.name.toLowerCase() === "duckduckgo");
+        
+        if (duckduckgo) {
+          await Services.search.setDefault(duckduckgo, Ci.nsISearchService.CHANGE_REASON_USER);
+          console.log("DuckDuckGo set as default search engine");
+        } else {
+          console.log("DuckDuckGo not found in search engines");
+        }
       case "OPEN_ABOUT_PAGE":
         let aboutPageURL = new URL(`about:${action.data.args}`);
         if (action.data.entrypoint) {

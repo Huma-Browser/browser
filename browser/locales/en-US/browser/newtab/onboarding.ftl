@@ -326,6 +326,13 @@ onboarding-restart-required-subtitle = As a result, we need to restart your brow
 onboarding-restart-required-button-yes-label = Yes, I have restarted my browser
 onboarding-restart-required-button-no-label = No, restart my browser now
 
+
+# DuckDuckGoScreen 
+
+onboarding-set-duckduckgo-default-title = Set DuckDuckGo as your default search engine
+onboarding-set-duckduckgo-default-subtitle = { -brand-short-name } is committed to your security and privacy, supporting software that respects your personal data. Choose DuckDuckGo for a more private and secure browsing experience.
+onboarding-set-duckduckgo-default-button-no-label = No, thanks
+onboarding-set-duckduckgo-default-button-yes-label = Yes, set DuckDuckGo as default
 ## New user time and familiarity survey strings
 
 onboarding-new-user-time-based-survey-title = How long have you been using { -brand-short-name }?
