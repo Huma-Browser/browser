@@ -9,10 +9,10 @@ var gHumaBar = {
         search.addEventListener('click', () => this.setDuckDuckGoAsDefault());
       } else {
         console.error("search-list element not found");
-      }
+      }*/
     } catch (error) {
       console.error("Error in loadPage:", error);
-    }*/
+    }
   },
 
   async setDuckDuckGoAsDefault() {
